@@ -29,12 +29,13 @@ app.get('/', (req, res) => {
 })
 
 app.post('/test', (req, res) => {
-    console.log("brooo");
-    console.log(req.body.name);
+    console.log("Received action \"" + req.body.name + "\" from frontend.");
     flowFiller.writeComponent(req.body.name);
-    res.send('Hello World!')
+    res.json({
+        message: "Click registered to file."
+    });
 })
+
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-    console.log("works bro");
+    console.log(`App listening on port ${port}`)
 })

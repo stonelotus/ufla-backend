@@ -9,7 +9,7 @@ function writeComponent(name) {
         console.error(err);
       }
       else {
-        console.log("File written successfully");
+        console.log("FLOW FILLER : File written successfully");
       }
     });
 }
