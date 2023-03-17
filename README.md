@@ -3,4 +3,4 @@
 ## Edit README for any changes in setup / how to run
 
 # How to run this : 
-Run "live-server" in console.
+Run "live-server" in terminal.
