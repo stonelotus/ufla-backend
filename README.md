@@ -3,8 +3,6 @@
 ## Edit README for any changes in setup / how to run
 
 # How to setup this : 
-## Click register setup : 
-Run "npm install live-server"
 
 ## Click emulator setup : 
 Run "python -m venv env"
@@ -15,7 +13,7 @@ Add to .gitignore "env"
 # How to run this : 
 ## Click register backend :
 #### - This receives activities (e.g. clicks) from frontend and writes to DB -
-Run "live-server" in terminal.
+Run "node app.js" in terminal.
 
 ## Click emulator backend
 #### - This reads from DB and emulates activities (e.g. clicks) -
