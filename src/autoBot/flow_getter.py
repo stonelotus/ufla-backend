@@ -1,7 +1,12 @@
+# Loads flow from database and properly formats data
+
+
 import os
+import json
 
-def get_flows():
 
+def get_all_flows():
+	# Gets all the flows from the database
 
 	# TODO modify as 
 	'''
@@ -12,20 +17,19 @@ def get_flows():
 	'''
 
 
-	filepath = '../../data/static_file.txt'
+	filepath = '../../data/static_file.json'
 
 	with open(filepath) as input_file:
 
-		lines = input_file.readlines()
+		data = input_file.read()
 
-		lines = [line.replace('\n', '') for line in lines]
+		jsonData = '[' + data[:-1] + ']'
+		# add first and last [ ] while removing the last ',' character
 
-	flows = [lines]
+		flow = json.loads(jsonData)
+
+	flows = [flow]
 
 	for flow in flows:
 		yield flow # TODO add when DB is set up
-
-
-def get_ids_in_flow(flow):
-	return flow
 
