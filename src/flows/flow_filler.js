@@ -1,10 +1,12 @@
 
 
-function writeComponent(name) {
+function writeComponent(component) {
     const fs = require('fs');
 
-    const content = name + '\n';
-    fs.appendFile('data/file.txt', content, err => {
+    jsonComponent = JSON.stringify(component);
+    jsonComponent += ','
+
+    fs.appendFile('data/flow.json', jsonComponent, err => {
       if (err) {
         console.error(err);
       }
@@ -12,6 +14,7 @@ function writeComponent(name) {
         console.log("FLOW FILLER : File written successfully");
       }
     });
+
 }
 
 module.exports = {

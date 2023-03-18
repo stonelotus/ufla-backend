@@ -29,8 +29,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/test', (req, res) => {
-    console.log("Received action \"" + req.body.name + "\" from frontend.");
-    flowFiller.writeComponent(req.body.name);
+    console.log("Received action \"" + req.body.eventData.type + "\" from frontend.");
+    flowFiller.writeComponent(req.body.eventData);
     res.json({
         message: "Click registered to file."
     });
