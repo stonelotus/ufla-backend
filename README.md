@@ -24,7 +24,7 @@ If using Linux, run the "activate" script
 
 <b>On first setup only</b> pip install selenium
 
-To run the module, run "python clicker.py"
+To run the module, run "python main.py"
 
 
 # TODO 
