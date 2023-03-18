@@ -1,0 +1,128 @@
+[
+    {
+        "type": "click",
+        "timestamp": 11777,
+        "view":
+        {
+            "screen":
+            {},
+            "innerHeight": 1004,
+            "innerWidth": 1023,
+            "outerHeight": 1119,
+            "outerWidth": 1038,
+            "scrollX": 0,
+            "scrollY": 0
+        },
+        "ctrlKey": false,
+        "target":
+        {
+            "className": "layout_padding collection_section",
+            "nodeName": "DIV",
+            "classList":
+            {
+                "0": "layout_padding",
+                "1": "collection_section"
+            },
+            "id": "",
+            "localName": "div"
+        },
+        "location":
+        {
+            "ancestorOrigins":
+            {},
+            "href": "http://127.0.0.1:8080/",
+            "origin": "http://127.0.0.1:8080",
+            "protocol": "http:",
+            "host": "127.0.0.1:8080",
+            "hostname": "127.0.0.1",
+            "port": "8080",
+            "pathname": "/",
+            "search": "",
+            "hash": ""
+        }
+    },
+    {
+        "type": "click",
+        "timestamp": 13864,
+        "view":
+        {
+            "screen":
+            {},
+            "innerHeight": 1004,
+            "innerWidth": 1023,
+            "outerHeight": 1119,
+            "outerWidth": 1038,
+            "scrollX": 0,
+            "scrollY": 0
+        },
+        "ctrlKey": false,
+        "target":
+        {
+            "className": "layout_padding collection_section",
+            "nodeName": "DIV",
+            "classList":
+            {
+                "0": "layout_padding",
+                "1": "collection_section"
+            },
+            "id": "",
+            "localName": "div"
+        },
+        "location":
+        {
+            "ancestorOrigins":
+            {},
+            "href": "http://127.0.0.1:8080/",
+            "origin": "http://127.0.0.1:8080",
+            "protocol": "http:",
+            "host": "127.0.0.1:8080",
+            "hostname": "127.0.0.1",
+            "port": "8080",
+            "pathname": "/",
+            "search": "",
+            "hash": ""
+        }
+    },
+    {
+        "type": "click",
+        "timestamp": 14778,
+        "view":
+        {
+            "screen":
+            {},
+            "innerHeight": 1004,
+            "innerWidth": 1023,
+            "outerHeight": 1119,
+            "outerWidth": 1038,
+            "scrollX": 0,
+            "scrollY": 0
+        },
+        "ctrlKey": false,
+        "target":
+        {
+            "className": "layout_padding collection_section",
+            "nodeName": "DIV",
+            "classList":
+            {
+                "0": "layout_padding",
+                "1": "collection_section"
+            },
+            "id": "",
+            "localName": "div"
+        },
+        "location":
+        {
+            "ancestorOrigins":
+            {},
+            "href": "http://127.0.0.1:8080/",
+            "origin": "http://127.0.0.1:8080",
+            "protocol": "http:",
+            "host": "127.0.0.1:8080",
+            "hostname": "127.0.0.1",
+            "port": "8080",
+            "pathname": "/",
+            "search": "",
+            "hash": ""
+        }
+    }
+]
