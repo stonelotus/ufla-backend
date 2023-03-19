@@ -1,30 +1,14 @@
 [
     {
-        "type": "click",
-        "timestamp": 11777,
-        "view":
-        {
-            "screen":
-            {},
-            "innerHeight": 1004,
-            "innerWidth": 1023,
-            "outerHeight": 1119,
-            "outerWidth": 1038,
-            "scrollX": 0,
-            "scrollY": 0
-        },
-        "ctrlKey": false,
+        "type": "scroll",
+        "timestamp": 29613,
         "target":
         {
-            "className": "layout_padding collection_section",
-            "nodeName": "DIV",
-            "classList":
+            "scrollingElement":
             {
-                "0": "layout_padding",
-                "1": "collection_section"
-            },
-            "id": "",
-            "localName": "div"
+                "scrollTop": 7931.2001953125,
+                "scrollHeight": 9845
+            }
         },
         "location":
         {
@@ -42,31 +26,24 @@
         }
     },
     {
-        "type": "click",
-        "timestamp": 13864,
-        "view":
-        {
-            "screen":
-            {},
-            "innerHeight": 1004,
-            "innerWidth": 1023,
-            "outerHeight": 1119,
-            "outerWidth": 1038,
-            "scrollX": 0,
-            "scrollY": 0
-        },
-        "ctrlKey": false,
+        "type": "input",
+        "timestamp": 38529,
+        "data": "s",
+        "inputType": "insertText",
+        "isComposing": false,
         "target":
         {
-            "className": "layout_padding collection_section",
-            "nodeName": "DIV",
+            "value": "as",
+            "type": "text",
+            "className": "enter_email",
+            "nodeName": "INPUT",
             "classList":
             {
-                "0": "layout_padding",
-                "1": "collection_section"
+                "0": "enter_email"
             },
             "id": "",
-            "localName": "div"
+            "localName": "input",
+            "name": "Name"
         },
         "location":
         {
@@ -84,31 +61,24 @@
         }
     },
     {
-        "type": "click",
-        "timestamp": 14778,
-        "view":
-        {
-            "screen":
-            {},
-            "innerHeight": 1004,
-            "innerWidth": 1023,
-            "outerHeight": 1119,
-            "outerWidth": 1038,
-            "scrollX": 0,
-            "scrollY": 0
-        },
-        "ctrlKey": false,
+        "type": "input",
+        "timestamp": 38585,
+        "data": "d",
+        "inputType": "insertText",
+        "isComposing": false,
         "target":
         {
-            "className": "layout_padding collection_section",
-            "nodeName": "DIV",
+            "value": "asd",
+            "type": "text",
+            "className": "enter_email",
+            "nodeName": "INPUT",
             "classList":
             {
-                "0": "layout_padding",
-                "1": "collection_section"
+                "0": "enter_email"
             },
             "id": "",
-            "localName": "div"
+            "localName": "input",
+            "name": "Name"
         },
         "location":
         {
