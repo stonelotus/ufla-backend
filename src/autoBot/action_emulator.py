@@ -70,6 +70,7 @@ def _emulate_scroll(driver, action):
 
 
 def _emulate_input(driver, action):
+	# TODO add behaviour for special cases e.g. "inputType": "deleteContentBackward",
 	try:
 		input_element = WebDriverWait(driver, 10).until(
 			_get_element_identifier_for_input(action)
