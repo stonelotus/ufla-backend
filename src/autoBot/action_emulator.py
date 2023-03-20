@@ -30,6 +30,11 @@ def emulate_one_flow(flow):
 				_emulate_scroll(driver, action)
 			case 'input':
 				_emulate_input(driver, action)
+			case 'DOMContentLoaded':
+				# the purpose of this is to properly resize the window at the beginning of the session
+				_emulate_DOMContentLoaded(driver, action)
+			case 'resize':
+				_emulate_resize(driver, action)
 
 	driver.quit()
 
@@ -89,6 +94,42 @@ def _emulate_input(driver, action):
 		print('--------------------------------')
 
 
+def _emulate_DOMContentLoaded(driver, action):
+	try:
+		inner_height, inner_width = _get_window_size_for_DOMContentLoaded(action)
+
+		if inner_width is not None and inner_height is not None:
+			driver.set_window_size(inner_height, inner_width)
+			print(f'Properly sized window for DOMContentLoaded.')
+		else:
+			print(f'Received "None" sizes when sizing window for DOMContentLoaded.')
+
+	except Exception as e:
+		print(f'Exception when sizing window for DOMContentLoaded.')
+		pass
+	# else:
+	finally:
+		print('--------------------------------')
+
+
+def _emulate_resize(driver, action):
+	try:
+		inner_height, inner_width = _get_window_size_for_resize(action)
+
+		if inner_width is not None and inner_height is not None:
+			driver.set_window_size(inner_height, inner_width)
+			print(f'Properly sized window for resize.')
+		else:
+			print(f'Received "None" sizes when sizing window for resize.')
+
+	except Exception as e:
+		print(f'Exception when sizing window for resize.')
+		pass
+	# else:
+	finally:
+		print('--------------------------------')
+
+
 def _get_element_identifier_for_click(action):
 	# this returns an EC.function corresponding to the looked for element
 
@@ -120,11 +161,46 @@ def _get_element_identifier_for_input(action):
 	return None
 
 
+def _get_window_size_for_DOMContentLoaded(action):
+	try:
+		action_target = action['target']
+	except KeyError as ke:
+		print('Error getting window size : action has no "target" field.')
+	else:
+		try:
+			action_target_default_view =  action_target['defaultView']
+		except KeyError as ke:
+			print('Error getting window size for DOMContentLoaded : action target has no "defaultView" field.')
+		else:
+			try:
+				inner_height = action_target_default_view['innerHeight']
+				inner_width = action_target_default_view['innerWidth']
+			except KeyError as ke:
+				print('Error getting window size for DOMContentLoaded : action target default view has no "innerHeight" or "innerWidth" field.')
+
+	return inner_height, inner_width
+
+
+def _get_window_size_for_resize(action):
+	try:
+		action_target = action['target']
+	except KeyError as ke:
+		print('Error getting window size for resize : action has no "target" field.')
+	else:
+		try:
+			inner_height = action_target['innerHeight']
+			inner_width = action_target['innerWidth']
+		except KeyError as ke:
+			print('Error getting window size for resize : action target has no "innerHeight" or "innerWidth" field.')
+
+	return inner_height, inner_width
+
+
 def _get_keys_to_input(action):
 	try:
 		action_data = action["data"]
 	except KeyError as ke:
-		print('Error getting action data : action has no "data" field.')
+		print('Error getting keys to input : action has no "data" field.')
 
 	return action_data
 
