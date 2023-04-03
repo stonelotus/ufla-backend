@@ -5,6 +5,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import logging
+
 from driver_loader import get_driver_for_browser_ip
 from flow_getter import get_all_flows
 
@@ -12,16 +14,16 @@ from flow_getter import get_all_flows
 def emulate_all_flows():
 	for flow in get_all_flows():
 		# print(f'Executing flow : "{flow}"')
-		print('Executing flow.')
+		logging.info('Executing flow.')
 		emulate_one_flow(flow)
-		print('====================================')
+		logging.info('====================================')
 
 
 def emulate_one_flow(flow):
 	driver = get_driver_for_browser_ip()
 	for action in flow:
 		action_type = _get_action_type(action)
-		print(action_type)
+		logging.info(action_type)
 	
 		match action_type:
 			case 'click':
@@ -48,14 +50,14 @@ def _emulate_click(driver, action):
 		)
 
 		element.click()
-		print(f'Clicked element.')
+		logging.info(f'Clicked element.')
 
 	except Exception as e:
-		print(f'Exception when clicking.')
+		logging.error(f'Exception when clicking.')
 		pass
 	# else:
 	finally:
-		print('--------------------------------')
+		logging.info('--------------------------------')
 
 
 def _emulate_scroll(driver, action):
@@ -66,14 +68,14 @@ def _emulate_scroll(driver, action):
 
 		driver.execute_script(script)
 
-		print(f'Executed scroll.')
+		logging.info(f'Executed scroll.')
 
 	except Exception as e:
-		print(f'Exception when scrolling.')
+		logging.error(f'Exception when scrolling.')
 		pass
 	# else:
 	finally:
-		print('--------------------------------')
+		logging.info('--------------------------------')
 
 
 def _emulate_input(driver, action):
@@ -86,14 +88,14 @@ def _emulate_input(driver, action):
 		keys_to_input = _get_keys_to_input(action)
 
 		input_element.send_keys(keys_to_input)
-		print(f'Sent input.')
+		logging.info(f'Sent input.')
 
 	except Exception as e:
-		print(f'Exception when inputting.')
+		logging.error(f'Exception when inputting.')
 		pass
 	# else:
 	finally:
-		print('--------------------------------')
+		logging.info('--------------------------------')
 
 
 def _emulate_DOMContentLoaded(driver, action):
@@ -102,16 +104,16 @@ def _emulate_DOMContentLoaded(driver, action):
 
 		if inner_width is not None and inner_height is not None:
 			driver.set_window_size(inner_height, inner_width)
-			print(f'Properly sized window for DOMContentLoaded.')
+			logging.info(f'Properly sized window for DOMContentLoaded.')
 		else:
-			print(f'Received "None" sizes when sizing window for DOMContentLoaded.')
+			logging.info(f'Received "None" sizes when sizing window for DOMContentLoaded.')
 
 	except Exception as e:
-		print(f'Exception when sizing window for DOMContentLoaded.')
+		logging.error(f'Exception when sizing window for DOMContentLoaded.')
 		pass
 	# else:
 	finally:
-		print('--------------------------------')
+		logging.info('--------------------------------')
 
 
 def _emulate_resize(driver, action):
@@ -120,16 +122,16 @@ def _emulate_resize(driver, action):
 
 		if inner_width is not None and inner_height is not None:
 			driver.set_window_size(inner_height, inner_width)
-			print(f'Properly sized window for resize.')
+			logging.info(f'Properly sized window for resize.')
 		else:
-			print(f'Received "None" sizes when sizing window for resize.')
+			logging.info(f'Received "None" sizes when sizing window for resize.')
 
 	except Exception as e:
-		print(f'Exception when sizing window for resize.')
+		logging.error(f'Exception when sizing window for resize.')
 		pass
 	# else:
 	finally:
-		print('--------------------------------')
+		logging.info('--------------------------------')
 
 
 def _get_element_identifier_for_click(action):
@@ -143,7 +145,7 @@ def _get_element_identifier_for_click(action):
 	if css_selector is not None:
 		return EC.presence_of_element_located((By.CSS_SELECTOR, css_selector))
 
-	print('Error fetching object. Object has no id or css_selector')
+	logging.error('error fetching object. Object has no id or css_selector')
 	return None
 
 
@@ -159,26 +161,26 @@ def _get_element_identifier_for_input(action):
 	if css_selector is not None:
 		return EC.presence_of_element_located((By.CSS_SELECTOR, css_selector))
 
-	print('Error fetching object. Object has no id or css_selector')
+	logging.error('error fetching object. Object has no id or css_selector')
 	return None
 
 
 def _get_window_size_for_DOMContentLoaded(action):
 	try:
 		action_target = action['target']
-	except KeyError as ke:
-		print('Error getting window size : action has no "target" field.')
+	except Keyerror as ke:
+		logging.error('error getting window size : action has no "target" field.')
 	else:
 		try:
 			action_target_default_view =  action_target['defaultView']
-		except KeyError as ke:
-			print('Error getting window size for DOMContentLoaded : action target has no "defaultView" field.')
+		except Keyerror as ke:
+			logging.error('error getting window size for DOMContentLoaded : action target has no "defaultView" field.')
 		else:
 			try:
 				inner_height = action_target_default_view['innerHeight']
 				inner_width = action_target_default_view['innerWidth']
-			except KeyError as ke:
-				print('Error getting window size for DOMContentLoaded : action target default view has no "innerHeight" or "innerWidth" field.')
+			except Keyerror as ke:
+				logging.error('error getting window size for DOMContentLoaded : action target default view has no "innerHeight" or "innerWidth" field.')
 
 	return inner_height, inner_width
 
@@ -186,14 +188,14 @@ def _get_window_size_for_DOMContentLoaded(action):
 def _get_window_size_for_resize(action):
 	try:
 		action_target = action['target']
-	except KeyError as ke:
-		print('Error getting window size for resize : action has no "target" field.')
+	except Keyerror as ke:
+		logging.error('error getting window size for resize : action has no "target" field.')
 	else:
 		try:
 			inner_height = action_target['innerHeight']
 			inner_width = action_target['innerWidth']
-		except KeyError as ke:
-			print('Error getting window size for resize : action target has no "innerHeight" or "innerWidth" field.')
+		except Keyerror as ke:
+			logging.error('error getting window size for resize : action target has no "innerHeight" or "innerWidth" field.')
 
 	return inner_height, inner_width
 
@@ -201,8 +203,8 @@ def _get_window_size_for_resize(action):
 def _get_keys_to_input(action):
 	try:
 		action_data = action["data"]
-	except KeyError as ke:
-		print('Error getting keys to input : action has no "data" field.')
+	except Keyerror as ke:
+		logging.error('error getting keys to input : action has no "data" field.')
 
 	return action_data
 
@@ -210,13 +212,13 @@ def _get_keys_to_input(action):
 def _get_action_id(action):
 	try:
 		action_target = action['target']
-	except KeyError as ke:
-		print('Error getting action ID : action has no "target" field.')
+	except Keyerror as ke:
+		logging.error('error getting action ID : action has no "target" field.')
 	else:
 		try:
 			action_id =  action_target["id"]
-		except KeyError as ke:
-			print('Error getting action ID : action target has no "id" field.')
+		except Keyerror as ke:
+			logging.error('error getting action ID : action target has no "id" field.')
 
 	if action_id is None or action_id is "":
 		return None
@@ -227,13 +229,13 @@ def _get_action_id(action):
 def _get_action_css_selector(action):
 	try:
 		action_target = action['target']
-	except KeyError as ke:
-		print('Error getting action css_selector : action has no "target" field.')
+	except Keyerror as ke:
+		logging.error('error getting action css_selector : action has no "target" field.')
 	else:
 		try:
 			action_class_name =  action_target["className"]
-		except KeyError as ke:
-			print('Error getting action css_selector : action target has no "className" field.')
+		except Keyerror as ke:
+			logging.error('error getting action css_selector : action target has no "className" field.')
 
 	if action_class_name is None or action_class_name is "":
 		return None
@@ -244,18 +246,18 @@ def _get_action_css_selector(action):
 def _get_scroll_height(action):
 	try:
 		action_target = action['target']
-	except KeyError as ke:
-		print('Error getting action scroll height : action has no "target" field.')
+	except Keyerror as ke:
+		logging.error('error getting action scroll height : action has no "target" field.')
 	else:
 		try:
 			action_scrolling_element =  action_target["scrollingElement"]
-		except KeyError as ke:
-			print('Error getting action scroll height : action target has no "scrollingElement" field.')
+		except Keyerror as ke:
+			logging.error('error getting action scroll height : action target has no "scrollingElement" field.')
 		else:
 			try:
 				action_scroll_height = action_scrolling_element["scrollHeight"]
-			except KeyError as ke:
-				print('Error getting action scroll height: action target scrollingElement has no "scrollHeight" field.')
+			except Keyerror as ke:
+				logging.error('error getting action scroll height: action target scrollingElement has no "scrollHeight" field.')
 
 	# if action_scroll_height is None:
 	# 	return None
@@ -268,7 +270,7 @@ def _get_action_type(action: dict):
 	# it is imposed that any action object within a flow has a type
 	try:
 		return action['type']
-	except KeyError:
-		print('Current action has no "type" property')
+	except Keyerror:
+		logging.error('Current action has no "type" property')
 		return None
 

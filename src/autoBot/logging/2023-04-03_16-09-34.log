@@ -1,0 +1,614 @@
+2023-04-03 16:09:34,246 INFO Executing flow.
+2023-04-03 16:09:34,268 DEBUG Started executable: `chromedriver` in a child process with pid: 9640
+2023-04-03 16:09:34,788 DEBUG POST http://localhost:50253/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "pageLoadStrategy": "normal", "goog:chromeOptions": {"prefs": {"profile.default_content_setting_values.notifications": 2}, "extensions": [], "args": []}}}}
+2023-04-03 16:09:34,789 DEBUG Starting new HTTP connection (1): localhost:50253
+2023-04-03 16:09:35,404 DEBUG http://localhost:50253 "POST /session HTTP/1.1" 200 858
+2023-04-03 16:09:35,407 DEBUG Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"111.0.5563.147","chrome":{"chromedriverVersion":"111.0.5563.64 (c710e93d5b63b7095afe8c2c17df34408078439d-refs/branch-heads/5563@{#995})","userDataDir":"C:\\Users\\Gabi\\AppData\\Local\\Temp\\scoped_dir9640_1322618067"},"goog:chromeOptions":{"debuggerAddress":"localhost:50256"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"4d0363129393182e2e11f3f0f7f6a5c3"}} | headers=HTTPHeaderDict({'Content-Length': '858', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:35,407 DEBUG Finished Request
+2023-04-03 16:09:35,407 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/window/maximize {}
+2023-04-03 16:09:35,529 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/window/maximize HTTP/1.1" 200 52
+2023-04-03 16:09:35,530 DEBUG Remote response: status=200 | data={"value":{"height":1042,"width":1722,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '52', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:35,530 DEBUG Finished Request
+2023-04-03 16:09:35,530 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/url {"url": "http://127.0.0.1:8080"}
+2023-04-03 16:09:35,840 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/url HTTP/1.1" 200 14
+2023-04-03 16:09:35,841 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:35,841 DEBUG Finished Request
+2023-04-03 16:09:35,841 DEBUG click
+2023-04-03 16:09:35,841 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:35,854 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:35,854 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:35,855 DEBUG Finished Request
+2023-04-03 16:09:36,356 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:36,363 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:36,364 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:36,364 DEBUG Finished Request
+2023-04-03 16:09:36,866 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:36,873 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:36,873 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:36,873 DEBUG Finished Request
+2023-04-03 16:09:37,374 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:37,381 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:37,381 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:37,381 DEBUG Finished Request
+2023-04-03 16:09:37,882 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:37,888 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:37,889 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:37,889 DEBUG Finished Request
+2023-04-03 16:09:38,390 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:38,396 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:38,396 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:38,396 DEBUG Finished Request
+2023-04-03 16:09:38,897 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:38,903 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:38,903 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:38,903 DEBUG Finished Request
+2023-04-03 16:09:39,405 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:39,410 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:39,410 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:39,410 DEBUG Finished Request
+2023-04-03 16:09:39,911 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:39,916 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:39,916 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:39,916 DEBUG Finished Request
+2023-04-03 16:09:40,417 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:40,423 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:40,423 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:40,423 DEBUG Finished Request
+2023-04-03 16:09:40,924 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:40,930 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:40,931 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:40,931 DEBUG Finished Request
+2023-04-03 16:09:41,431 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:41,438 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:41,438 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:41,438 DEBUG Finished Request
+2023-04-03 16:09:41,939 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:41,947 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:41,947 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:41,947 DEBUG Finished Request
+2023-04-03 16:09:42,448 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:42,454 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:42,454 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:42,455 DEBUG Finished Request
+2023-04-03 16:09:42,955 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:42,961 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:42,962 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:42,962 DEBUG Finished Request
+2023-04-03 16:09:43,463 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:43,469 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:43,470 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:43,470 DEBUG Finished Request
+2023-04-03 16:09:43,970 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:43,977 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:43,977 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:43,977 DEBUG Finished Request
+2023-04-03 16:09:44,478 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:44,485 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:44,485 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:44,485 DEBUG Finished Request
+2023-04-03 16:09:44,986 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:44,992 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:44,992 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:44,992 DEBUG Finished Request
+2023-04-03 16:09:45,494 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/element {"using": "css selector", "value": "layout_padding collection_section"}
+2023-04-03 16:09:45,500 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/element HTTP/1.1" 404 976
+2023-04-03 16:09:45,501 DEBUG Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"layout_padding collection_section\"}\n  (Session info: chrome=111.0.5563.147)","stacktrace":"Backtrace:\n\t(No symbol) [0x0112DCE3]\n\t(No symbol) [0x010C39D1]\n\t(No symbol) [0x00FD4DA8]\n\t(No symbol) [0x0100019F]\n\t(No symbol) [0x010003AB]\n\t(No symbol) [0x0102EE62]\n\t(No symbol) [0x0101AF14]\n\t(No symbol) [0x0102D57C]\n\t(No symbol) [0x0101ACC6]\n\t(No symbol) [0x00FF6F68]\n\t(No symbol) [0x00FF80CD]\n\tGetHandleVerifier [0x013A3832+2506274]\n\tGetHandleVerifier [0x013D9794+2727300]\n\tGetHandleVerifier [0x013DE36C+2746716]\n\tGetHandleVerifier [0x011D6690+617600]\n\t(No symbol) [0x010CC712]\n\t(No symbol) [0x010D1FF8]\n\t(No symbol) [0x010D20DB]\n\t(No symbol) [0x010DC63B]\n\tBaseThreadInitThunk [0x757000F9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77807BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77807B8E+238]\n"}} | headers=HTTPHeaderDict({'Content-Length': '976', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:45,501 DEBUG Finished Request
+2023-04-03 16:09:46,002 ERROR Exception when clicking.
+2023-04-03 16:09:46,002 DEBUG --------------------------------
+2023-04-03 16:09:46,002 DEBUG resize
+2023-04-03 16:09:46,002 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/window/rect {"x": null, "y": null, "width": 1014, "height": 2048}
+2023-04-03 16:09:46,257 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/window/rect HTTP/1.1" 200 52
+2023-04-03 16:09:46,257 DEBUG Remote response: status=200 | data={"value":{"height":1084,"width":1014,"x":10,"y":10}} | headers=HTTPHeaderDict({'Content-Length': '52', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,257 DEBUG Finished Request
+2023-04-03 16:09:46,257 INFO Properly sized window for resize.
+2023-04-03 16:09:46,257 DEBUG --------------------------------
+2023-04-03 16:09:46,257 DEBUG scroll
+2023-04-03 16:09:46,258 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,293 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,293 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,293 DEBUG Finished Request
+2023-04-03 16:09:46,293 INFO Executed scroll.
+2023-04-03 16:09:46,293 DEBUG --------------------------------
+2023-04-03 16:09:46,293 DEBUG scroll
+2023-04-03 16:09:46,294 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,339 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,340 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,340 DEBUG Finished Request
+2023-04-03 16:09:46,340 INFO Executed scroll.
+2023-04-03 16:09:46,340 DEBUG --------------------------------
+2023-04-03 16:09:46,340 DEBUG scroll
+2023-04-03 16:09:46,340 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,378 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,378 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,378 DEBUG Finished Request
+2023-04-03 16:09:46,379 INFO Executed scroll.
+2023-04-03 16:09:46,379 DEBUG --------------------------------
+2023-04-03 16:09:46,379 DEBUG scroll
+2023-04-03 16:09:46,379 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,412 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,412 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,412 DEBUG Finished Request
+2023-04-03 16:09:46,412 INFO Executed scroll.
+2023-04-03 16:09:46,413 DEBUG --------------------------------
+2023-04-03 16:09:46,413 DEBUG scroll
+2023-04-03 16:09:46,413 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,452 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,453 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,453 DEBUG Finished Request
+2023-04-03 16:09:46,453 INFO Executed scroll.
+2023-04-03 16:09:46,453 DEBUG --------------------------------
+2023-04-03 16:09:46,453 DEBUG scroll
+2023-04-03 16:09:46,453 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,474 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,474 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,474 DEBUG Finished Request
+2023-04-03 16:09:46,474 INFO Executed scroll.
+2023-04-03 16:09:46,474 DEBUG --------------------------------
+2023-04-03 16:09:46,474 DEBUG scroll
+2023-04-03 16:09:46,475 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,502 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,502 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,502 DEBUG Finished Request
+2023-04-03 16:09:46,502 INFO Executed scroll.
+2023-04-03 16:09:46,502 DEBUG --------------------------------
+2023-04-03 16:09:46,502 DEBUG scroll
+2023-04-03 16:09:46,503 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,512 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,512 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,512 DEBUG Finished Request
+2023-04-03 16:09:46,512 INFO Executed scroll.
+2023-04-03 16:09:46,513 DEBUG --------------------------------
+2023-04-03 16:09:46,513 DEBUG scroll
+2023-04-03 16:09:46,513 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,543 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,543 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,543 DEBUG Finished Request
+2023-04-03 16:09:46,544 INFO Executed scroll.
+2023-04-03 16:09:46,544 DEBUG --------------------------------
+2023-04-03 16:09:46,544 DEBUG scroll
+2023-04-03 16:09:46,544 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,560 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,560 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,561 DEBUG Finished Request
+2023-04-03 16:09:46,561 INFO Executed scroll.
+2023-04-03 16:09:46,561 DEBUG --------------------------------
+2023-04-03 16:09:46,561 DEBUG scroll
+2023-04-03 16:09:46,561 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,570 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,571 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,571 DEBUG Finished Request
+2023-04-03 16:09:46,571 INFO Executed scroll.
+2023-04-03 16:09:46,571 DEBUG --------------------------------
+2023-04-03 16:09:46,571 DEBUG scroll
+2023-04-03 16:09:46,571 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,583 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,583 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,584 DEBUG Finished Request
+2023-04-03 16:09:46,584 INFO Executed scroll.
+2023-04-03 16:09:46,584 DEBUG --------------------------------
+2023-04-03 16:09:46,584 DEBUG scroll
+2023-04-03 16:09:46,584 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,588 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,589 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,589 DEBUG Finished Request
+2023-04-03 16:09:46,589 INFO Executed scroll.
+2023-04-03 16:09:46,589 DEBUG --------------------------------
+2023-04-03 16:09:46,589 DEBUG scroll
+2023-04-03 16:09:46,589 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,595 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,595 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,595 DEBUG Finished Request
+2023-04-03 16:09:46,595 INFO Executed scroll.
+2023-04-03 16:09:46,595 DEBUG --------------------------------
+2023-04-03 16:09:46,595 DEBUG scroll
+2023-04-03 16:09:46,596 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,602 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,602 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,602 DEBUG Finished Request
+2023-04-03 16:09:46,603 INFO Executed scroll.
+2023-04-03 16:09:46,603 DEBUG --------------------------------
+2023-04-03 16:09:46,603 DEBUG scroll
+2023-04-03 16:09:46,603 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,609 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,610 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,610 DEBUG Finished Request
+2023-04-03 16:09:46,610 INFO Executed scroll.
+2023-04-03 16:09:46,610 DEBUG --------------------------------
+2023-04-03 16:09:46,610 DEBUG scroll
+2023-04-03 16:09:46,610 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,619 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,620 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,620 DEBUG Finished Request
+2023-04-03 16:09:46,620 INFO Executed scroll.
+2023-04-03 16:09:46,620 DEBUG --------------------------------
+2023-04-03 16:09:46,620 DEBUG scroll
+2023-04-03 16:09:46,620 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,627 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,627 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,628 DEBUG Finished Request
+2023-04-03 16:09:46,628 INFO Executed scroll.
+2023-04-03 16:09:46,628 DEBUG --------------------------------
+2023-04-03 16:09:46,628 DEBUG scroll
+2023-04-03 16:09:46,628 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,637 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,637 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,637 DEBUG Finished Request
+2023-04-03 16:09:46,638 INFO Executed scroll.
+2023-04-03 16:09:46,638 DEBUG --------------------------------
+2023-04-03 16:09:46,638 DEBUG scroll
+2023-04-03 16:09:46,638 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,643 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,644 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,644 DEBUG Finished Request
+2023-04-03 16:09:46,644 INFO Executed scroll.
+2023-04-03 16:09:46,644 DEBUG --------------------------------
+2023-04-03 16:09:46,644 DEBUG scroll
+2023-04-03 16:09:46,644 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,653 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,653 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,653 DEBUG Finished Request
+2023-04-03 16:09:46,653 INFO Executed scroll.
+2023-04-03 16:09:46,653 DEBUG --------------------------------
+2023-04-03 16:09:46,653 DEBUG scroll
+2023-04-03 16:09:46,653 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,661 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,661 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,662 DEBUG Finished Request
+2023-04-03 16:09:46,662 INFO Executed scroll.
+2023-04-03 16:09:46,662 DEBUG --------------------------------
+2023-04-03 16:09:46,662 DEBUG scroll
+2023-04-03 16:09:46,662 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,669 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,669 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,669 DEBUG Finished Request
+2023-04-03 16:09:46,669 INFO Executed scroll.
+2023-04-03 16:09:46,669 DEBUG --------------------------------
+2023-04-03 16:09:46,670 DEBUG scroll
+2023-04-03 16:09:46,670 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,678 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,678 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,678 DEBUG Finished Request
+2023-04-03 16:09:46,678 INFO Executed scroll.
+2023-04-03 16:09:46,678 DEBUG --------------------------------
+2023-04-03 16:09:46,678 DEBUG scroll
+2023-04-03 16:09:46,678 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,686 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,686 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,686 DEBUG Finished Request
+2023-04-03 16:09:46,686 INFO Executed scroll.
+2023-04-03 16:09:46,686 DEBUG --------------------------------
+2023-04-03 16:09:46,686 DEBUG scroll
+2023-04-03 16:09:46,686 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,696 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,696 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,696 DEBUG Finished Request
+2023-04-03 16:09:46,696 INFO Executed scroll.
+2023-04-03 16:09:46,696 DEBUG --------------------------------
+2023-04-03 16:09:46,696 DEBUG scroll
+2023-04-03 16:09:46,697 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,701 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,701 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,701 DEBUG Finished Request
+2023-04-03 16:09:46,702 INFO Executed scroll.
+2023-04-03 16:09:46,702 DEBUG --------------------------------
+2023-04-03 16:09:46,702 DEBUG scroll
+2023-04-03 16:09:46,702 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,709 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,709 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,709 DEBUG Finished Request
+2023-04-03 16:09:46,709 INFO Executed scroll.
+2023-04-03 16:09:46,710 DEBUG --------------------------------
+2023-04-03 16:09:46,710 DEBUG scroll
+2023-04-03 16:09:46,710 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,717 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,717 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,718 DEBUG Finished Request
+2023-04-03 16:09:46,718 INFO Executed scroll.
+2023-04-03 16:09:46,718 DEBUG --------------------------------
+2023-04-03 16:09:46,718 DEBUG scroll
+2023-04-03 16:09:46,718 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,725 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,726 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,726 DEBUG Finished Request
+2023-04-03 16:09:46,726 INFO Executed scroll.
+2023-04-03 16:09:46,726 DEBUG --------------------------------
+2023-04-03 16:09:46,726 DEBUG scroll
+2023-04-03 16:09:46,726 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,734 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,734 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,734 DEBUG Finished Request
+2023-04-03 16:09:46,734 INFO Executed scroll.
+2023-04-03 16:09:46,734 DEBUG --------------------------------
+2023-04-03 16:09:46,734 DEBUG scroll
+2023-04-03 16:09:46,734 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,742 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,743 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,743 DEBUG Finished Request
+2023-04-03 16:09:46,743 INFO Executed scroll.
+2023-04-03 16:09:46,743 DEBUG --------------------------------
+2023-04-03 16:09:46,743 DEBUG scroll
+2023-04-03 16:09:46,743 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,752 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,752 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,752 DEBUG Finished Request
+2023-04-03 16:09:46,753 INFO Executed scroll.
+2023-04-03 16:09:46,753 DEBUG --------------------------------
+2023-04-03 16:09:46,753 DEBUG scroll
+2023-04-03 16:09:46,753 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,760 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,760 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,760 DEBUG Finished Request
+2023-04-03 16:09:46,760 INFO Executed scroll.
+2023-04-03 16:09:46,760 DEBUG --------------------------------
+2023-04-03 16:09:46,760 DEBUG scroll
+2023-04-03 16:09:46,760 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,769 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,770 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,770 DEBUG Finished Request
+2023-04-03 16:09:46,770 INFO Executed scroll.
+2023-04-03 16:09:46,770 DEBUG --------------------------------
+2023-04-03 16:09:46,770 DEBUG scroll
+2023-04-03 16:09:46,770 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,777 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,777 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,777 DEBUG Finished Request
+2023-04-03 16:09:46,777 INFO Executed scroll.
+2023-04-03 16:09:46,777 DEBUG --------------------------------
+2023-04-03 16:09:46,778 DEBUG scroll
+2023-04-03 16:09:46,778 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,792 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,793 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,793 DEBUG Finished Request
+2023-04-03 16:09:46,793 INFO Executed scroll.
+2023-04-03 16:09:46,793 DEBUG --------------------------------
+2023-04-03 16:09:46,793 DEBUG scroll
+2023-04-03 16:09:46,793 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,801 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,801 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,801 DEBUG Finished Request
+2023-04-03 16:09:46,801 INFO Executed scroll.
+2023-04-03 16:09:46,801 DEBUG --------------------------------
+2023-04-03 16:09:46,801 DEBUG scroll
+2023-04-03 16:09:46,801 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,811 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,811 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,811 DEBUG Finished Request
+2023-04-03 16:09:46,811 INFO Executed scroll.
+2023-04-03 16:09:46,811 DEBUG --------------------------------
+2023-04-03 16:09:46,811 DEBUG scroll
+2023-04-03 16:09:46,812 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,819 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,819 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,819 DEBUG Finished Request
+2023-04-03 16:09:46,819 INFO Executed scroll.
+2023-04-03 16:09:46,819 DEBUG --------------------------------
+2023-04-03 16:09:46,819 DEBUG scroll
+2023-04-03 16:09:46,819 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,828 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,828 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,828 DEBUG Finished Request
+2023-04-03 16:09:46,828 INFO Executed scroll.
+2023-04-03 16:09:46,828 DEBUG --------------------------------
+2023-04-03 16:09:46,828 DEBUG scroll
+2023-04-03 16:09:46,829 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,835 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,835 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,835 DEBUG Finished Request
+2023-04-03 16:09:46,835 INFO Executed scroll.
+2023-04-03 16:09:46,835 DEBUG --------------------------------
+2023-04-03 16:09:46,835 DEBUG scroll
+2023-04-03 16:09:46,836 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,842 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,843 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,843 DEBUG Finished Request
+2023-04-03 16:09:46,843 INFO Executed scroll.
+2023-04-03 16:09:46,843 DEBUG --------------------------------
+2023-04-03 16:09:46,843 DEBUG scroll
+2023-04-03 16:09:46,843 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,851 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,852 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,852 DEBUG Finished Request
+2023-04-03 16:09:46,852 INFO Executed scroll.
+2023-04-03 16:09:46,852 DEBUG --------------------------------
+2023-04-03 16:09:46,852 DEBUG scroll
+2023-04-03 16:09:46,852 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,859 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,859 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,859 DEBUG Finished Request
+2023-04-03 16:09:46,859 INFO Executed scroll.
+2023-04-03 16:09:46,859 DEBUG --------------------------------
+2023-04-03 16:09:46,859 DEBUG scroll
+2023-04-03 16:09:46,859 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,867 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,867 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,867 DEBUG Finished Request
+2023-04-03 16:09:46,867 INFO Executed scroll.
+2023-04-03 16:09:46,867 DEBUG --------------------------------
+2023-04-03 16:09:46,867 DEBUG scroll
+2023-04-03 16:09:46,867 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,874 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,874 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,874 DEBUG Finished Request
+2023-04-03 16:09:46,874 INFO Executed scroll.
+2023-04-03 16:09:46,874 DEBUG --------------------------------
+2023-04-03 16:09:46,874 DEBUG scroll
+2023-04-03 16:09:46,874 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,878 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,878 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,878 DEBUG Finished Request
+2023-04-03 16:09:46,878 INFO Executed scroll.
+2023-04-03 16:09:46,878 DEBUG --------------------------------
+2023-04-03 16:09:46,878 DEBUG scroll
+2023-04-03 16:09:46,879 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,883 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,884 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,884 DEBUG Finished Request
+2023-04-03 16:09:46,884 INFO Executed scroll.
+2023-04-03 16:09:46,884 DEBUG --------------------------------
+2023-04-03 16:09:46,884 DEBUG scroll
+2023-04-03 16:09:46,884 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,891 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,891 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,891 DEBUG Finished Request
+2023-04-03 16:09:46,891 INFO Executed scroll.
+2023-04-03 16:09:46,891 DEBUG --------------------------------
+2023-04-03 16:09:46,892 DEBUG scroll
+2023-04-03 16:09:46,892 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,895 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,895 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,895 DEBUG Finished Request
+2023-04-03 16:09:46,895 INFO Executed scroll.
+2023-04-03 16:09:46,896 DEBUG --------------------------------
+2023-04-03 16:09:46,896 DEBUG scroll
+2023-04-03 16:09:46,896 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,901 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,901 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,902 DEBUG Finished Request
+2023-04-03 16:09:46,902 INFO Executed scroll.
+2023-04-03 16:09:46,902 DEBUG --------------------------------
+2023-04-03 16:09:46,902 DEBUG scroll
+2023-04-03 16:09:46,902 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,908 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,908 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,908 DEBUG Finished Request
+2023-04-03 16:09:46,908 INFO Executed scroll.
+2023-04-03 16:09:46,908 DEBUG --------------------------------
+2023-04-03 16:09:46,909 DEBUG scroll
+2023-04-03 16:09:46,909 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,912 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,912 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,912 DEBUG Finished Request
+2023-04-03 16:09:46,912 INFO Executed scroll.
+2023-04-03 16:09:46,912 DEBUG --------------------------------
+2023-04-03 16:09:46,912 DEBUG scroll
+2023-04-03 16:09:46,912 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,917 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,918 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,918 DEBUG Finished Request
+2023-04-03 16:09:46,918 INFO Executed scroll.
+2023-04-03 16:09:46,918 DEBUG --------------------------------
+2023-04-03 16:09:46,918 DEBUG scroll
+2023-04-03 16:09:46,918 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,926 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,927 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,927 DEBUG Finished Request
+2023-04-03 16:09:46,927 INFO Executed scroll.
+2023-04-03 16:09:46,927 DEBUG --------------------------------
+2023-04-03 16:09:46,927 DEBUG scroll
+2023-04-03 16:09:46,927 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,934 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,934 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,934 DEBUG Finished Request
+2023-04-03 16:09:46,934 INFO Executed scroll.
+2023-04-03 16:09:46,934 DEBUG --------------------------------
+2023-04-03 16:09:46,934 DEBUG scroll
+2023-04-03 16:09:46,935 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,941 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,941 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,941 DEBUG Finished Request
+2023-04-03 16:09:46,942 INFO Executed scroll.
+2023-04-03 16:09:46,942 DEBUG --------------------------------
+2023-04-03 16:09:46,942 DEBUG scroll
+2023-04-03 16:09:46,942 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,945 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,945 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,946 DEBUG Finished Request
+2023-04-03 16:09:46,946 INFO Executed scroll.
+2023-04-03 16:09:46,946 DEBUG --------------------------------
+2023-04-03 16:09:46,946 DEBUG scroll
+2023-04-03 16:09:46,946 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,952 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,952 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,952 DEBUG Finished Request
+2023-04-03 16:09:46,952 INFO Executed scroll.
+2023-04-03 16:09:46,952 DEBUG --------------------------------
+2023-04-03 16:09:46,952 DEBUG scroll
+2023-04-03 16:09:46,952 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,959 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,959 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,959 DEBUG Finished Request
+2023-04-03 16:09:46,959 INFO Executed scroll.
+2023-04-03 16:09:46,959 DEBUG --------------------------------
+2023-04-03 16:09:46,959 DEBUG scroll
+2023-04-03 16:09:46,959 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,967 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,967 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,967 DEBUG Finished Request
+2023-04-03 16:09:46,967 INFO Executed scroll.
+2023-04-03 16:09:46,968 DEBUG --------------------------------
+2023-04-03 16:09:46,968 DEBUG scroll
+2023-04-03 16:09:46,968 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,971 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,971 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,971 DEBUG Finished Request
+2023-04-03 16:09:46,971 INFO Executed scroll.
+2023-04-03 16:09:46,971 DEBUG --------------------------------
+2023-04-03 16:09:46,971 DEBUG scroll
+2023-04-03 16:09:46,972 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,976 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,977 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,977 DEBUG Finished Request
+2023-04-03 16:09:46,977 INFO Executed scroll.
+2023-04-03 16:09:46,977 DEBUG --------------------------------
+2023-04-03 16:09:46,977 DEBUG scroll
+2023-04-03 16:09:46,977 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,985 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,985 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,985 DEBUG Finished Request
+2023-04-03 16:09:46,985 INFO Executed scroll.
+2023-04-03 16:09:46,985 DEBUG --------------------------------
+2023-04-03 16:09:46,985 DEBUG scroll
+2023-04-03 16:09:46,985 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,991 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,992 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,992 DEBUG Finished Request
+2023-04-03 16:09:46,992 INFO Executed scroll.
+2023-04-03 16:09:46,992 DEBUG --------------------------------
+2023-04-03 16:09:46,992 DEBUG scroll
+2023-04-03 16:09:46,992 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:46,995 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:46,995 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:46,995 DEBUG Finished Request
+2023-04-03 16:09:46,995 INFO Executed scroll.
+2023-04-03 16:09:46,996 DEBUG --------------------------------
+2023-04-03 16:09:46,996 DEBUG scroll
+2023-04-03 16:09:46,996 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:47,001 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:47,001 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:47,002 DEBUG Finished Request
+2023-04-03 16:09:47,002 INFO Executed scroll.
+2023-04-03 16:09:47,002 DEBUG --------------------------------
+2023-04-03 16:09:47,002 DEBUG scroll
+2023-04-03 16:09:47,002 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:47,009 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:47,010 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:47,010 DEBUG Finished Request
+2023-04-03 16:09:47,010 INFO Executed scroll.
+2023-04-03 16:09:47,010 DEBUG --------------------------------
+2023-04-03 16:09:47,010 DEBUG scroll
+2023-04-03 16:09:47,010 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:47,017 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:47,017 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:47,017 DEBUG Finished Request
+2023-04-03 16:09:47,017 INFO Executed scroll.
+2023-04-03 16:09:47,017 DEBUG --------------------------------
+2023-04-03 16:09:47,017 DEBUG scroll
+2023-04-03 16:09:47,017 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync {"script": "window.scrollTo(0, 5251);", "args": []}
+2023-04-03 16:09:47,024 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/execute/sync HTTP/1.1" 200 14
+2023-04-03 16:09:47,025 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:47,025 DEBUG Finished Request
+2023-04-03 16:09:47,025 INFO Executed scroll.
+2023-04-03 16:09:47,025 DEBUG --------------------------------
+2023-04-03 16:09:47,025 DEBUG resize
+2023-04-03 16:09:47,025 DEBUG POST http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3/window/rect {"x": null, "y": null, "width": 998, "height": 1032}
+2023-04-03 16:09:47,137 DEBUG http://localhost:50253 "POST /session/4d0363129393182e2e11f3f0f7f6a5c3/window/rect HTTP/1.1" 200 51
+2023-04-03 16:09:47,137 DEBUG Remote response: status=200 | data={"value":{"height":1032,"width":998,"x":10,"y":10}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:47,137 DEBUG Finished Request
+2023-04-03 16:09:47,137 INFO Properly sized window for resize.
+2023-04-03 16:09:47,137 DEBUG --------------------------------
+2023-04-03 16:09:47,138 DEBUG DELETE http://localhost:50253/session/4d0363129393182e2e11f3f0f7f6a5c3 {}
+2023-04-03 16:09:47,201 DEBUG http://localhost:50253 "DELETE /session/4d0363129393182e2e11f3f0f7f6a5c3 HTTP/1.1" 200 14
+2023-04-03 16:09:47,201 DEBUG Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2023-04-03 16:09:47,201 DEBUG Finished Request
+2023-04-03 16:09:53,371 DEBUG ====================================
