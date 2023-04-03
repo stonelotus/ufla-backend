@@ -31,9 +31,11 @@ def emulate_one_flow(flow):
 			case 'input':
 				_emulate_input(driver, action)
 			case 'DOMContentLoaded':
+				pass
 				# the purpose of this is to properly resize the window at the beginning of the session
 				_emulate_DOMContentLoaded(driver, action)
 			case 'resize':
+				pass
 				_emulate_resize(driver, action)
 
 	driver.quit()
