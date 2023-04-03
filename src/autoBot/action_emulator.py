@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 import logging
+import time
 
 from driver_loader import get_driver_for_browser_ip
 from flow_getter import get_all_flows
@@ -21,6 +22,19 @@ def emulate_all_flows():
 
 def emulate_one_flow(flow):
 	driver = get_driver_for_browser_ip()
+	
+	time.sleep(1)
+
+	# css_selector = 'div.col-sm-3'
+	css_selector = 'layout_padding'
+	try:
+		element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css_selector)))
+
+		element.click()
+		logging.info('MANUAL click')
+	except:
+		logging.error('Error when manual clicking')
+
 	for action in flow:
 		action_type = _get_action_type(action)
 		logging.info(action_type)
@@ -32,13 +46,14 @@ def emulate_one_flow(flow):
 				_emulate_scroll(driver, action)
 			case 'input':
 				_emulate_input(driver, action)
-			case 'DOMContentLoaded':
-				pass
-				# the purpose of this is to properly resize the window at the beginning of the session
-				_emulate_DOMContentLoaded(driver, action)
-			case 'resize':
-				pass
-				_emulate_resize(driver, action)
+			# case 'DOMContentLoaded':
+			# 	pass
+			# 	print('reaches here')
+			# 	# the purpose of this is to properly resize the window at the beginning of the session
+			# 	_emulate_DOMContentLoaded(driver, action)
+			# case 'resize':
+			# 	pass
+			# 	_emulate_resize(driver, action)
 
 	driver.quit()
 
@@ -220,7 +235,7 @@ def _get_action_id(action):
 		except Keyerror as ke:
 			logging.error('error getting action ID : action target has no "id" field.')
 
-	if action_id is None or action_id is "":
+	if action_id == None or action_id == "":
 		return None
 
 	return action_id
@@ -237,7 +252,7 @@ def _get_action_css_selector(action):
 		except Keyerror as ke:
 			logging.error('error getting action css_selector : action target has no "className" field.')
 
-	if action_class_name is None or action_class_name is "":
+	if action_class_name == None or action_class_name == "":
 		return None
 
 	return action_class_name

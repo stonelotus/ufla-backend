@@ -31,7 +31,7 @@ def _get_driver(browserName=_DEFAULT_BROWSER):
 			# Disable notifications
 			prefs = {"profile.default_content_setting_values.notifications": 2}
 			chrome_options.add_experimental_option("prefs", prefs)
-			# chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+			chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 			# Launch the Chrome browser
 			driver = Chrome(options=chrome_options)
