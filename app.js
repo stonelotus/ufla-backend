@@ -4,7 +4,7 @@ const app = express()
 const port = 3000
 const bodyParser = require('body-parser');
 const flowFiller = require('./src/flows/flow_filler');
-
+const searchRouter = require('./src/routes/search');
 
 const corsOpts = {
     origin: '*',
@@ -22,6 +22,7 @@ const corsOpts = {
 
 app.use(cors(corsOpts));
 app.use(bodyParser.json());
+app.use('/api/search',searchRouter); 
 
 app.get('/', (req, res) => {
     console.log("works from here");
