@@ -1,29 +1,75 @@
 const { es } = require('../configs/elastic-client');
-test = async () => {
-    const result = await es.search({
+const logger = require('pino')()
+
+const elasticTests = {
+  sanityCheck: async () => {
+    try {
+      const response = await es.ping();
+      logger.info(response);
+    } catch (error) {
+      logger.error('Error pinging Elastic:', error);
+    }
+  },
+  searchCheck: async () => {
+    try {
+      const response = await es.search({
         index: 'tests',
-        query: {
-            match: { status: 'alive' }
-        }
-    })
-}
-async function searchDocuments(index, query) {
-  try {
-    var response = await es.search({
-      index,
-      body: {
         query: {
           match: { status: 'alive' }
         }
-      }
-    });
-    console.log("pula")
-    console.log(response.hits.hits);
-    return response.hits.hits;
-  } catch (error) {
-    console.error('Error searching documents:', error);
+      });
+      let statusObject = response?.hits?.hits?.[0]?._source;
+      logger.info(statusObject);
+      return statusObject ?? 'broken'
+      
+    } catch (error) {
+      logger.error('Error searching documents:', error);
+    }
   }
 }
 
-searchDocuments("tests", "sane_as_fk");
-// test();
+const elasticMagic = { 
+  createIndex: async (indexName) => {
+    try {
+      const response = await es.indices.create({
+        index: indexName
+      });
+      logger.info(response);
+    } catch (error) {
+      logger.error('Error creating index:', error);
+    }
+  },
+  indexDocument: async (indexName, document) => {
+    try {
+      const response = await es.index({
+        index: indexName,
+        body: document
+      });
+      logger.info(response);
+      
+    } catch (error) {
+      logger.error('Error indexing document:', error);
+    }
+  },
+  search: async (indexName, query) => {
+    try {
+      const response = await es.search({
+        index: indexName,
+        body: {
+          query: {
+            match: query
+          }
+        }
+      });
+      logger.info(response);
+      return response?.hits?.hits ?? 'broken'
+    } catch (error) {
+      logger.error('Error searching documents:', error);
+    }
+  }
+}
+
+module.exports = {
+  esTests: elasticTests,
+  es:      elasticMagic
+}
