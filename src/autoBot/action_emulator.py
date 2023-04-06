@@ -18,31 +18,12 @@ def emulate_all_flows():
 		# print(f'Executing flow : "{flow}"')
 		logging.info('Executing flow.')
 		emulate_one_flow(flow)
-		logging.info('====================================')
+		logging.info('================== End of flow ==================')
 
 
 def emulate_one_flow(flow):
 	driver = get_driver_for_browser_ip()
-
 	chain = ActionChains(driver)
-
-	# css_selector = 'div.col-sm-3'
-	# xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/sec[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/img[1]"
-	# xpath = "/html[1]/body[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/for[1]/div[4]/tex[1]"
-	# xpath = '/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]'
-	# xpath = "/html[1]/body[1]/div[2]"
-	# /html[1]/body[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/for[1]/div[4]/tex[1]
-	# /html[1]/body[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/for[1]/div[4]/tex[1]
-
-
-	# try:
-	# 	element = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, xpath)))
-
-	# 	element.click()
-	# 	logging.info('MANUAL click')
-	# except Exception as e:
-	# 	logging.error('Error when manual clicking')
-	# 	print(e)
 
 	for action in flow:
 		action_type = _get_action_type(action)
@@ -51,8 +32,8 @@ def emulate_one_flow(flow):
 		match action_type:
 			case 'click':
 				_emulate_click(chain, driver, action)
-			case 'scroll':
-				_emulate_scroll(chain, driver, action)
+			# case 'scroll':
+			# 	_emulate_scroll(chain, driver, action)
 			case 'input':
 				_emulate_input(chain, driver, action)
 			# case 'DOMContentLoaded':
@@ -64,18 +45,12 @@ def emulate_one_flow(flow):
 			# 	pass
 			# 	_emulate_resize(driver, action)
 
-	time.sleep(1)
 	driver.quit()
 
 
 def _emulate_click(chain, driver, action):
 	try:
-		# element = WebDriverWait(driver, 2).until(
-		# 	_get_element_identifier_for_click(action)
-		# )
-
-		element = driver.find_element_by_xpath(action['xpath'])
-
+		element = _get_element(driver, action)
 		chain.move_to_element(element).click().perform()
 		logging.info(f'Clicked element.')
 
@@ -84,7 +59,7 @@ def _emulate_click(chain, driver, action):
 		pass
 	# else:
 	finally:
-		logging.info('--------------------------------')
+		logging.info('--------------- End of action -----------------')
 
 
 def _emulate_scroll(chain, driver, action):
@@ -93,7 +68,6 @@ def _emulate_scroll(chain, driver, action):
 		scroll_height = _get_scroll_height(action)
 
 		driver.execute_script('window.scrollTo(0, arguments[0]);', scroll_height)
-
 		logging.info(f'Executed scroll.')
 
 	except Exception as e:
@@ -101,22 +75,16 @@ def _emulate_scroll(chain, driver, action):
 		pass
 	# else:
 	finally:
-		logging.info('--------------------------------')
+		logging.info('--------------- End of action -----------------')
 
 
 def _emulate_input(chain, driver, action):
 	# TODO add behaviour for special cases e.g. "inputType": "deleteContentBackward",
 	try:
-		# input_element = WebDriverWait(driver, 2).until(
-		# 	_get_element_identifier_for_input(action)
-		# )
-
+		input_element = _get_element(driver, action)
 		keys_to_input = _get_keys_to_input(action)
 		
-		element = driver.find_element_by_xpath(action['xpath'])
-		chain.move_to_element(element).click().send_keys(keys_to_input).perform()
-		# move_to_element(element).click() suplimentar, maybe TOBE removed later
-
+		chain.move_to_element(input_element).click().send_keys(keys_to_input).perform()
 		logging.info(f'Sent input.')
 
 	except Exception as e:
@@ -124,7 +92,8 @@ def _emulate_input(chain, driver, action):
 		pass
 	# else:
 	finally:
-		logging.info('--------------------------------')
+		logging.info('--------------- End of action -----------------')
+
 
 
 def _emulate_DOMContentLoaded(chain, action):
@@ -163,36 +132,26 @@ def _emulate_resize(chain, action):
 		logging.info('--------------------------------')
 
 
-def _get_element_identifier_for_click(action):
-	# this returns an EC.function corresponding to the looked for element
+def _get_element(driver, action):
+	try:
+		element_xpath = _get_element_xpath(action)
 
-	element_xpath = _get_element_xpath(action)
-	if element_xpath is not None:
-		return EC.presence_of_element_located((By.XPATH, element_xpath))
+		element = WebDriverWait(driver, 2).until(
+			EC.presence_of_element_located((By.XPATH, element_xpath))
+		)
 
-	logging.error('Error identifying object. Received "None" from identifier ')
-	return None
+		driver.execute_script("arguments[0].scrollIntoView(true);", element)
 
+		element = WebDriverWait(driver, 10).until(
+			EC.visibility_of_element_located((By.XPATH, element_xpath))
+		)
 
-def _get_element_identifier_for_input(action):
-	# this returns an EC.function corresponding to the looked for element
-	# identical to the one for click. Are separated since they might need particular modifications later on
+		time.sleep(1)
+		# should do the same as the above, however the above doesn't perform properly for some reason
+		return element
 
-	
-	element_xpath = _get_element_xpath(action)
-	if element_xpath is not None:
-		return EC.presence_of_element_located((By.XPATH, element_xpath))
-
-	# element_id = _get_action_id(action)
-	# if element_id is not None:
-	# 	return EC.presence_of_element_located((By.ID, element_id))
-
-	# css_selector = _get_action_css_selector(action)
-	# if css_selector is not None:
-	# 	return EC.presence_of_element_located((By.CSS_SELECTOR, css_selector))
-
-	logging.error('error fetching object. Object has no id or css_selector')
-	return None
+	except:
+		logging.error(f'Exception when getting element')
 
 
 def _get_window_size_for_DOMContentLoaded(action):
