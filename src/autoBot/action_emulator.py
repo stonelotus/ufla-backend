@@ -15,7 +15,6 @@ from flow_getter import get_all_flows
 
 def emulate_all_flows():
 	for flow in get_all_flows():
-		# print(f'Executing flow : "{flow}"')
 		logging.info('Executing flow.')
 		emulate_one_flow(flow)
 		logging.info('================== End of flow ==================')
@@ -261,9 +260,6 @@ def _get_scroll_height(action):
 				action_scroll_height = action_scrolling_element["scrollHeight"]
 			except Keyerror as ke:
 				logging.error('error getting action scroll height: action target scrollingElement has no "scrollHeight" field.')
-
-	# if action_scroll_height is None:
-	# 	return None
 
  	## if 0 then ok to return 0 to execute an empty scroll
 	return action_scroll_height
