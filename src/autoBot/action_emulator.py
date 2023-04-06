@@ -4,6 +4,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
 import logging
@@ -78,21 +79,29 @@ def _emulate_scroll(chain, driver, action):
 
 
 def _emulate_input(chain, driver, action):
-	# TODO add behaviour for special cases e.g. "inputType": "deleteContentBackward",
-	try:
-		input_element = _get_element(driver, action)
-		keys_to_input = _get_keys_to_input(action)
-		
-		chain.move_to_element(input_element).click().send_keys(keys_to_input).perform()
-		logging.info(f'Sent input.')
+	input_element = _get_element(driver, action)
+	keys_to_input = _get_keys_to_input(action)
 
-	except Exception as e:
-		logging.error(f'Exception when inputting.' + str(e))
-		pass
-	# else:
-	finally:
-		logging.info('--------------- End of action -----------------')
+	input_type = action['inputType']
+	match input_type:
+		case 'insertText':
+			_handle_insert_text_event(chain, input_element, keys_to_input)
+		case 'deleteContentBackward':
+			_handle_delete_content_backward_event(input_element)
+		case 'deleteContentForward':
+			_handle_delete_content_forward_event(input_element)
+		case 'insertFromPaste':
+			_handle_insert_from_paste_event(chain, input_element)
+		case 'insertFromDrop':
+			_handle_insert_from_drop_event(chain, input_element, keys_to_input)
+		case 'insertCompositionText':
+			_handle_insert_composition_text_event(input_element, keys_to_input)
+		case 'insertLineBreak':
+			_handle_insert_line_break_event(input_element)
+		case _:
+			raise ValueError(f'Unknown inputType value: {input_type}')
 
+	logging.info('--------------- End of action -----------------')
 
 
 def _emulate_DOMContentLoaded(chain, action):
@@ -110,7 +119,7 @@ def _emulate_DOMContentLoaded(chain, action):
 		pass
 	# else:
 	finally:
-		logging.info('--------------------------------')
+		logging.info('--------------- End of action -----------------')
 
 
 def _emulate_resize(chain, action):
@@ -128,7 +137,7 @@ def _emulate_resize(chain, action):
 		pass
 	# else:
 	finally:
-		logging.info('--------------------------------')
+		logging.info('--------------- End of action -----------------')
 
 
 def _get_element(driver, action):
@@ -151,6 +160,41 @@ def _get_element(driver, action):
 
 	except:
 		logging.error(f'Exception when getting element')
+
+
+def _handle_insert_text_event(chain, input_element, keys_to_input):
+	chain.move_to_element(input_element).click().send_keys(keys_to_input).perform()
+	logging.info('Inserted text.')
+
+
+def _handle_delete_content_backward_event(input_element):
+	input_element.send_keys(Keys.BACKSPACE)
+	logging.info('Deleted content backward.')
+
+
+def _handle_delete_content_forward_event(input_element):
+	input_element.send_keys(Keys.DELETE)
+	logging.info('Deleted content forward.')
+
+
+def _handle_insert_from_paste_event(chain, input_element):
+	chain.move_to_element(input_element).click().key_down(Keys.CONTROL).send_keys('v').key_up(Keys.CONTROL).perform()
+	logging.info('Inserted content from paste.')
+
+
+def _handle_insert_from_drop_event(chain, input_element, keys_to_input):
+	chain.drag_and_drop(keys_to_input, input_element).perform()
+	logging.info('Inserted content from drop.')
+
+
+def _handle_insert_composition_text_event(input_element, keys_to_input):
+	input_element.send_keys(keys_to_input)
+	logging.info('Inserted composition text.')
+
+
+def _handle_insert_line_break_event(input_element):
+	input_element.send_keys(Keys.ENTER)
+	logging.info('Inserted line break.')
 
 
 def _get_window_size_for_DOMContentLoaded(action):
