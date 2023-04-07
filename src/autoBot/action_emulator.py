@@ -30,8 +30,29 @@ def emulate_one_flow(flow):
 		logging.info(action_type)
 	
 		match action_type:
+			# Mouse events
 			case 'click':
 				_emulate_click(chain, driver, action)
+			case 'dblclick':
+				_emulate_dblclick(chain, driver, action)
+			case 'mousedown':
+				_emulate_mousedown(chain, driver, action)
+			case 'mouseup':
+				_emulate_mouseup(chain, driver, action)
+			case 'mousemove':
+				_emulate_mousemove(chain, driver, action)
+			case 'mouseover':
+				_emulate_mouseover(chain, driver, action)
+			case 'mouseenter':
+				_emulate_mouseover(chain, driver, action) # same function as mouseover
+			case 'mouseout':
+				_emulate_mouseout(chain, driver, action)
+			case 'mouseleave':
+				_emulate_mouseout(chain, driver, action) # same function as mouseout
+			case 'contextmenu':
+				_emulate_contextmenu(chain, driver, action)
+
+			# Window events
 			# case 'scroll':
 			# 	_emulate_scroll(chain, driver, action)
 			case 'input':
@@ -39,15 +60,14 @@ def emulate_one_flow(flow):
 			case 'DOMContentLoaded':
 				# the purpose of this is to properly resize the window at the beginning of the session
 				_emulate_DOMContentLoaded(chain, driver, action)
-			# case 'resize':
-			# 	pass
-			# 	_emulate_resize(driver, action)
+			case 'resize':
+				_emulate_resize(chain, driver, action)
 
-	# time.sleep(5)
+	time.sleep(5)
 
 	driver.quit()
 
-
+# MOUSE EVENTS
 def _emulate_click(chain, driver, action):
 	try:
 		element = _get_element(driver, action)
@@ -62,6 +82,108 @@ def _emulate_click(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
+def _emulate_dblclick(chain, driver, action):
+    try:
+        element = _get_element(driver, action)
+        chain.move_to_element(element).double_click().perform()
+        logging.info(f'Double-clicked element.')
+
+    except Exception as e:
+        logging.error(f'Exception when double-clicking: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def _emulate_mousedown(chain, driver, action):
+    try:
+        element = _get_element(driver, action)
+        chain.move_to_element(element).click_and_hold().perform()
+        logging.info(f'Mouse down on element.')
+
+    except Exception as e:
+        logging.error(f'Exception when performing mouse down: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def _emulate_mouseup(chain, driver, action):
+    try:
+        element = _get_element(driver, action)
+        chain.move_to_element(element).release().perform()
+        logging.info(f'Mouse up on element.')
+
+    except Exception as e:
+        logging.error(f'Exception when performing mouse up: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def _emulate_mousemove(chain, driver, action):
+    try:
+        element = _get_element(driver, action)
+        chain.move_to_element(element).perform()
+        logging.info(f'Moved mouse to element.')
+
+    except Exception as e:
+        logging.error(f'Exception when moving mouse: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+# Both mouseover and mouseenter can be handled with the same function
+def _emulate_mouseover(chain, driver, action):
+    try:
+        element = _get_element(driver, action)
+        chain.move_to_element(element).perform()
+        logging.info(f'Mouse over/enter element.')
+
+    except Exception as e:
+        logging.error(f'Exception when performing mouse over/enter: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+# Both mouseout and mouseleave can be handled with the same function
+def _emulate_mouseout(chain, driver, action):
+    try:
+        element = _get_element(driver, action)
+        chain.move_to_element_with_offset(element, -10, -10).perform()
+        logging.info(f'Mouse out/leave element.')
+
+    except Exception as e:
+        logging.error(f'Exception when performing mouse out/leave: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def _emulate_contextmenu(chain, driver, action):
+    try:
+        element = _get_element(driver, action)
+        chain.move_to_element(element).context_click().perform()
+        logging.info(f'Right-clicked element.')
+
+    except Exception as e:
+        logging.error(f'Exception when right-clicking: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+
+
+
+
+
+
+
+
+# WINDOW EVENTS
 def _emulate_scroll(chain, driver, action):
 	# TODO add scroll_width
 	try:
@@ -106,9 +228,9 @@ def _emulate_input(chain, driver, action):
 
 def _emulate_DOMContentLoaded(chain, driver, action):
 	try:
-		inner_width, inner_height = _get_window_size_for_DOMContentLoaded(action)
-		if inner_width != None and inner_height != None:
-			driver.set_window_size(inner_width, inner_height)
+		outer_width, outer_height = _get_window_size(action)
+		if outer_width is not None and outer_height is not None:
+			driver.set_window_size(outer_width, outer_height)
 			logging.info(f'Properly sized window for DOMContentLoaded.')
 		else:
 			logging.info(f'Received "None" sizes when sizing window for DOMContentLoaded.')
@@ -121,12 +243,12 @@ def _emulate_DOMContentLoaded(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-def _emulate_resize(chain, action):
+def _emulate_resize(chain, driver, action):
 	try:
-		inner_height, inner_width = _get_window_size_for_resize(action)
+		outer_width, outer_height = _get_window_size(action)
 
-		if inner_width is not None and inner_height is not None:
-			driver.set_window_size(inner_width, inner_height)
+		if outer_width is not None and outer_height is not None:
+			driver.set_window_size(outer_width, outer_height)
 			logging.info(f'Properly sized window for resize.')
 		else:
 			logging.info(f'Received "None" sizes when sizing window for resize.')
@@ -153,7 +275,7 @@ def _get_element(driver, action):
 			EC.visibility_of_element_located((By.XPATH, element_xpath))
 		)
 
-		time.sleep(1)
+		time.sleep(0.1)
 		# should do the same as the above, however the above doesn't perform properly for some reason
 		return element
 
@@ -196,30 +318,13 @@ def _handle_insert_line_break_event(input_element):
 	logging.info('Inserted line break.')
 
 
-def _get_window_size_for_DOMContentLoaded(action):
+def _get_window_size(action):
 	try:
-		window_height = action['windowOuterHeight']
 		window_width = action['windowOuterWidth']
+		window_height = action['windowOuterHeight']
 		return window_width, window_height
-
 	except Keyerror as ke:
-		logging.error('error getting window size : action has no "windowInnerHeight" or "windowInnerWidth" field.')
-
-
-
-def _get_window_size_for_resize(action):
-	try:
-		action_target = action['target']
-	except Keyerror as ke:
-		logging.error('error getting window size for resize : action has no "target" field.')
-	else:
-		try:
-			inner_height = action_target['innerHeight']
-			inner_width = action_target['innerWidth']
-		except Keyerror as ke:
-			logging.error('error getting window size for resize : action target has no "innerHeight" or "innerWidth" field.')
-
-	return inner_height, inner_width
+		logging.error('error getting window size : action has no "windowInnerWidth" or "windowInnerHeight" field.')
 
 
 def _get_element_xpath(element):
