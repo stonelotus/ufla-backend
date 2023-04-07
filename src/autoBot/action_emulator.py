@@ -275,7 +275,7 @@ def _get_element(driver, action):
 			EC.visibility_of_element_located((By.XPATH, element_xpath))
 		)
 
-		time.sleep(0.1)
+		# time.sleep(0.1)
 		# should do the same as the above, however the above doesn't perform properly for some reason
 		return element
 
