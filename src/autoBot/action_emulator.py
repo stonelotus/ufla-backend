@@ -39,11 +39,10 @@ def emulate_one_flow(flow):
 			case 'DOMContentLoaded':
 				# the purpose of this is to properly resize the window at the beginning of the session
 				_emulate_DOMContentLoaded(chain, driver, action)
-			# case 'resize':
-			# 	pass
-			# 	_emulate_resize(driver, action)
+			case 'resize':
+				_emulate_resize(chain, driver, action)
 
-	# time.sleep(5)
+	time.sleep(5)
 
 	driver.quit()
 
@@ -106,9 +105,9 @@ def _emulate_input(chain, driver, action):
 
 def _emulate_DOMContentLoaded(chain, driver, action):
 	try:
-		inner_width, inner_height = _get_window_size_for_DOMContentLoaded(action)
-		if inner_width != None and inner_height != None:
-			driver.set_window_size(inner_width, inner_height)
+		outer_width, outer_height = _get_window_size(action)
+		if outer_width is not None and outer_height is not None:
+			driver.set_window_size(outer_width, outer_height)
 			logging.info(f'Properly sized window for DOMContentLoaded.')
 		else:
 			logging.info(f'Received "None" sizes when sizing window for DOMContentLoaded.')
@@ -121,12 +120,12 @@ def _emulate_DOMContentLoaded(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-def _emulate_resize(chain, action):
+def _emulate_resize(chain, driver, action):
 	try:
-		inner_height, inner_width = _get_window_size_for_resize(action)
+		outer_width, outer_height = _get_window_size(action)
 
-		if inner_width is not None and inner_height is not None:
-			driver.set_window_size(inner_width, inner_height)
+		if outer_width is not None and outer_height is not None:
+			driver.set_window_size(outer_width, outer_height)
 			logging.info(f'Properly sized window for resize.')
 		else:
 			logging.info(f'Received "None" sizes when sizing window for resize.')
@@ -197,6 +196,8 @@ def _handle_insert_line_break_event(input_element):
 
 
 def _get_window_size_for_DOMContentLoaded(action):
+	# deprecated
+	# TODO delete
 	try:
 		window_height = action['windowOuterHeight']
 		window_width = action['windowOuterWidth']
@@ -206,8 +207,18 @@ def _get_window_size_for_DOMContentLoaded(action):
 		logging.error('error getting window size : action has no "windowInnerHeight" or "windowInnerWidth" field.')
 
 
+def _get_window_size(action):
+	try:
+		window_height = action['windowOuterHeight']
+		window_width = action['windowOuterWidth']
+		return window_width, window_height
+	except Keyerror as ke:
+		logging.error('error getting window size : action has no "windowInnerHeight" or "windowInnerWidth" field.')
+
 
 def _get_window_size_for_resize(action):
+	# deprecated
+	# TODO delete
 	try:
 		action_target = action['target']
 	except Keyerror as ke:
