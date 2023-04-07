@@ -45,10 +45,11 @@ def emulate_one_flow(flow):
 				_emulate_mouseover(chain, driver, action)
 			case 'mouseenter':
 				_emulate_mouseover(chain, driver, action) # same function as mouseover
-			case 'mouseout':
-				_emulate_mouseout(chain, driver, action)
-			case 'mouseleave':
-				_emulate_mouseout(chain, driver, action) # same function as mouseout
+			# case 'mouseout':
+			# 	_emulate_mouseout(chain, driver, action)
+			# case 'mouseleave':
+			# 	_emulate_mouseout(chain, driver, action) # same function as mouseout
+			# # Commented as they add no value and increase error%
 			case 'contextmenu':
 				_emulate_contextmenu(chain, driver, action)
 
@@ -71,7 +72,16 @@ def emulate_one_flow(flow):
 def _emulate_click(chain, driver, action):
 	try:
 		element = _get_element(driver, action)
+		# time.sleep(1) # added timing needed to get to the middle of the object
+		ctrl_key = _get_ctrl_key(action)
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
 		chain.move_to_element(element).click().perform()
+		
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
 		logging.info(f'Clicked element.')
 
 	except Exception as e:
@@ -83,96 +93,159 @@ def _emulate_click(chain, driver, action):
 
 
 def _emulate_dblclick(chain, driver, action):
-    try:
-        element = _get_element(driver, action)
-        chain.move_to_element(element).double_click().perform()
-        logging.info(f'Double-clicked element.')
+	try:
+		element = _get_element(driver, action)
+		
+		ctrl_key = _get_ctrl_key(action)
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
 
-    except Exception as e:
-        logging.error(f'Exception when double-clicking: ' + str(e))
-        pass
-    finally:
-        logging.info('--------------- End of action -----------------')
+		chain.move_to_element(element).double_click().perform()
+		
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		logging.info(f'Double-clicked element.')
+
+	except Exception as e:
+		logging.error(f'Exception when double-clicking: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
 
 
 def _emulate_mousedown(chain, driver, action):
-    try:
-        element = _get_element(driver, action)
-        chain.move_to_element(element).click_and_hold().perform()
-        logging.info(f'Mouse down on element.')
+	try:
+		element = _get_element(driver, action)
+		
+		ctrl_key = _get_ctrl_key(action)
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
 
-    except Exception as e:
-        logging.error(f'Exception when performing mouse down: ' + str(e))
-        pass
-    finally:
-        logging.info('--------------- End of action -----------------')
+		chain.move_to_element(element).click_and_hold().perform()
+		
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		logging.info(f'Mouse down on element.')
+
+	except Exception as e:
+		logging.error(f'Exception when performing mouse down: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
 
 
 def _emulate_mouseup(chain, driver, action):
-    try:
-        element = _get_element(driver, action)
-        chain.move_to_element(element).release().perform()
-        logging.info(f'Mouse up on element.')
+	try:
+		element = _get_element(driver, action)
 
-    except Exception as e:
-        logging.error(f'Exception when performing mouse up: ' + str(e))
-        pass
-    finally:
-        logging.info('--------------- End of action -----------------')
+		ctrl_key = _get_ctrl_key(action)
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		chain.move_to_element(element).release().perform()
+		
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		logging.info(f'Mouse up on element.')
+
+	except Exception as e:
+		logging.error(f'Exception when performing mouse up: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
 
 
 def _emulate_mousemove(chain, driver, action):
-    try:
-        element = _get_element(driver, action)
-        chain.move_to_element(element).perform()
-        logging.info(f'Moved mouse to element.')
+	try:
+		element = _get_element(driver, action)
 
-    except Exception as e:
-        logging.error(f'Exception when moving mouse: ' + str(e))
-        pass
-    finally:
-        logging.info('--------------- End of action -----------------')
+		ctrl_key = _get_ctrl_key(action)
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		chain.move_to_element(element).perform()
+		
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		logging.info(f'Moved mouse to element.')
+
+	except Exception as e:
+		logging.error(f'Exception when moving mouse: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
 
 
 # Both mouseover and mouseenter can be handled with the same function
 def _emulate_mouseover(chain, driver, action):
-    try:
-        element = _get_element(driver, action)
-        chain.move_to_element(element).perform()
-        logging.info(f'Mouse over/enter element.')
+	try:
+		element = _get_element(driver, action)
+		
+		ctrl_key = _get_ctrl_key(action)
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
 
-    except Exception as e:
-        logging.error(f'Exception when performing mouse over/enter: ' + str(e))
-        pass
-    finally:
-        logging.info('--------------- End of action -----------------')
+		chain.move_to_element(element).perform()
+		
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		logging.info(f'Mouse over/enter element.')
+
+	except Exception as e:
+		logging.error(f'Exception when performing mouse over/enter: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
 
 
 # Both mouseout and mouseleave can be handled with the same function
 def _emulate_mouseout(chain, driver, action):
-    try:
-        element = _get_element(driver, action)
-        chain.move_to_element_with_offset(element, -10, -10).perform()
-        logging.info(f'Mouse out/leave element.')
+	try:
+		element = _get_element(driver, action)
+		
+		ctrl_key = _get_ctrl_key(action)
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
 
-    except Exception as e:
-        logging.error(f'Exception when performing mouse out/leave: ' + str(e))
-        pass
-    finally:
-        logging.info('--------------- End of action -----------------')
+		chain.move_to_element_with_offset(element, -10, -10).perform()
+		
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		logging.info(f'Mouse out/leave element.')
+
+	except Exception as e:
+		logging.error(f'Exception when performing mouse out/leave: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
 
 
 def _emulate_contextmenu(chain, driver, action):
-    try:
-        element = _get_element(driver, action)
-        chain.move_to_element(element).context_click().perform()
-        logging.info(f'Right-clicked element.')
+	try:
+		element = _get_element(driver, action)
+		
+		ctrl_key = _get_ctrl_key(action)
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
 
-    except Exception as e:
-        logging.error(f'Exception when right-clicking: ' + str(e))
-        pass
-    finally:
-        logging.info('--------------- End of action -----------------')
+		chain.move_to_element(element).context_click().perform()
+		
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		logging.info(f'Right-clicked element.')
+
+	except Exception as e:
+		logging.error(f'Exception when right-clicking: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
 
 
 
@@ -275,7 +348,7 @@ def _get_element(driver, action):
 			EC.visibility_of_element_located((By.XPATH, element_xpath))
 		)
 
-		# time.sleep(0.1)
+		time.sleep(0.5)
 		# should do the same as the above, however the above doesn't perform properly for some reason
 		return element
 
@@ -316,6 +389,13 @@ def _handle_insert_composition_text_event(input_element, keys_to_input):
 def _handle_insert_line_break_event(input_element):
 	input_element.send_keys(Keys.ENTER)
 	logging.info('Inserted line break.')
+
+
+def _get_ctrl_key(action):
+	try:
+		return action['ctrlKey']
+	except Keyerror as ke:
+		logging.error('Current action doesn\'t have a ctrlKey attribute')
 
 
 def _get_window_size(action):
@@ -400,7 +480,7 @@ def _get_scroll_height(action):
 			except Keyerror as ke:
 				logging.error('error getting action scroll height: action target scrollingElement has no "scrollHeight" field.')
 
- 	## if 0 then ok to return 0 to execute an empty scroll
+	## if 0 then ok to return 0 to execute an empty scroll
 	return action_scroll_height
 
 
