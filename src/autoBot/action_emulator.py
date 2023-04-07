@@ -198,8 +198,8 @@ def _handle_insert_line_break_event(input_element):
 
 def _get_window_size_for_DOMContentLoaded(action):
 	try:
-		window_height = action['windowInnerHeight']
-		window_width = action['windowInnerWidth']	
+		window_height = action['windowOuterHeight']
+		window_width = action['windowOuterWidth']
 		return window_width, window_height
 
 	except Keyerror as ke:
