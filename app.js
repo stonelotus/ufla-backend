@@ -5,6 +5,8 @@ const port = 3000
 const bodyParser = require('body-parser');
 const flowFiller = require('./src/api/flows/flow_filler');
 const searchRouter = require('./src/routes/search');
+const actionRouter = require('./src/api/actions/action.routes');
+const flowRouter   = require('./src/api/flows/flow.routes');
 
 const corsOpts = {
     origin: '*',
@@ -22,8 +24,13 @@ const corsOpts = {
 
 app.use(cors(corsOpts));
 app.use(bodyParser.json());
-app.use('/api/search',searchRouter); 
+app.use(express.json()); // For parsing application/json
 
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+
+app.use('/api/search',searchRouter); 
+app.use('/api/actions',actionRouter);
+app.use('/api/flows',flowRouter);
 app.get('/', (req, res) => {
     console.log("works from here");
     res.send('Hello World!')
