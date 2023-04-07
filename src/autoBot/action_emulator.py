@@ -195,42 +195,13 @@ def _handle_insert_line_break_event(input_element):
 	logging.info('Inserted line break.')
 
 
-def _get_window_size_for_DOMContentLoaded(action):
-	# deprecated
-	# TODO delete
-	try:
-		window_height = action['windowOuterHeight']
-		window_width = action['windowOuterWidth']
-		return window_width, window_height
-
-	except Keyerror as ke:
-		logging.error('error getting window size : action has no "windowInnerHeight" or "windowInnerWidth" field.')
-
-
 def _get_window_size(action):
 	try:
-		window_height = action['windowOuterHeight']
 		window_width = action['windowOuterWidth']
+		window_height = action['windowOuterHeight']
 		return window_width, window_height
 	except Keyerror as ke:
-		logging.error('error getting window size : action has no "windowInnerHeight" or "windowInnerWidth" field.')
-
-
-def _get_window_size_for_resize(action):
-	# deprecated
-	# TODO delete
-	try:
-		action_target = action['target']
-	except Keyerror as ke:
-		logging.error('error getting window size for resize : action has no "target" field.')
-	else:
-		try:
-			inner_height = action_target['innerHeight']
-			inner_width = action_target['innerWidth']
-		except Keyerror as ke:
-			logging.error('error getting window size for resize : action target has no "innerHeight" or "innerWidth" field.')
-
-	return inner_height, inner_width
+		logging.error('error getting window size : action has no "windowInnerWidth" or "windowInnerHeight" field.')
 
 
 def _get_element_xpath(element):
