@@ -1,24 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {esTests, es} = require('../utils/elastic');
+const {esTests, es} = require('../helpers/elastic');
 
-router.post('/create-index/:indexName', async (req, res) => {
+router.get('/create-index/:indexName', async (req, res) => {
   const indexName = req.params.indexName;
-  await elasticsearchUtils.createIndex(indexName);
+  await es.createIndex(indexName);
   res.json({ message: `Index '${indexName}' created` });
-});
-
-router.delete('/delete-index/:indexName', async (req, res) => {
-  const indexName = req.params.indexName;
-  await elasticsearchUtils.deleteIndex(indexName);
-  res.json({ message: `Index '${indexName}' deleted` });
-});
-
-router.post('/index-document/:indexName', async (req, res) => {
-  const indexName = req.params.indexName;
-  const document = req.body;
-  await elasticsearchUtils.indexDocument(indexName, document);
-  res.json({ message: 'Document indexed' });
 });
 
 router.get('/search/:indexName/:query', async (req, res) => {

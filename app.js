@@ -3,7 +3,7 @@ const cors = require('cors')
 const app = express()
 const port = 3000
 const bodyParser = require('body-parser');
-const flowFiller = require('./src/flows/flow_filler');
+const flowFiller = require('./src/api/flows/flow_filler');
 const searchRouter = require('./src/routes/search');
 
 const corsOpts = {

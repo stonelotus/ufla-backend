@@ -1,5 +1,16 @@
-const { es } = require('../configs/elastic-client');
 const logger = require('pino')()
+const { Client } = require("@elastic/elasticsearch");
+
+
+
+const es = new Client({
+    node: 'http://64.226.91.205:9200',
+    // auth: {
+    //     username: 'dio',
+    //     password: 'gaby12gaby12='
+    //   }
+});
+
 
 const elasticTests = {
   sanityCheck: async () => {
@@ -34,7 +45,7 @@ const elasticMagic = {
       const response = await es.indices.create({
         index: indexName
       });
-      logger.info(response);
+      logger.info(response);  //TODO error handling
     } catch (error) {
       logger.error('Error creating index:', error);
     }
@@ -65,6 +76,18 @@ const elasticMagic = {
       return response?.hits?.hits ?? 'broken'
     } catch (error) {
       logger.error('Error searching documents:', error);
+    }
+  },
+  getDocumentByID: async (indexName, id) => {
+    try {
+      const response = await es.get({
+        index: indexName,
+        id: id
+      });
+      logger.info(response);
+      return response._source ?? 'broken'
+    } catch (error) {
+      logger.error('Error getting document by ID:', error);
     }
   }
 }
