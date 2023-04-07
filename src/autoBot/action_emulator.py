@@ -36,14 +36,14 @@ def emulate_one_flow(flow):
 			# 	_emulate_scroll(chain, driver, action)
 			case 'input':
 				_emulate_input(chain, driver, action)
-			# case 'DOMContentLoaded':
-			# 	pass
-			# 	print('reaches here')
-			# 	# the purpose of this is to properly resize the window at the beginning of the session
-			# 	_emulate_DOMContentLoaded(driver, action)
+			case 'DOMContentLoaded':
+				# the purpose of this is to properly resize the window at the beginning of the session
+				_emulate_DOMContentLoaded(chain, driver, action)
 			# case 'resize':
 			# 	pass
 			# 	_emulate_resize(driver, action)
+
+	# time.sleep(5)
 
 	driver.quit()
 
@@ -104,18 +104,17 @@ def _emulate_input(chain, driver, action):
 	logging.info('--------------- End of action -----------------')
 
 
-def _emulate_DOMContentLoaded(chain, action):
+def _emulate_DOMContentLoaded(chain, driver, action):
 	try:
-		inner_height, inner_width = _get_window_size_for_DOMContentLoaded(action)
-
-		if inner_width is not None and inner_height is not None:
-			driver.set_window_size(inner_height, inner_width)
+		inner_width, inner_height = _get_window_size_for_DOMContentLoaded(action)
+		if inner_width != None and inner_height != None:
+			driver.set_window_size(inner_width, inner_height)
 			logging.info(f'Properly sized window for DOMContentLoaded.')
 		else:
 			logging.info(f'Received "None" sizes when sizing window for DOMContentLoaded.')
 
 	except Exception as e:
-		logging.error(f'Exception when sizing window for DOMContentLoaded.')
+		logging.error(f'Exception when sizing window for DOMContentLoaded.:\n {e}')
 		pass
 	# else:
 	finally:
@@ -127,7 +126,7 @@ def _emulate_resize(chain, action):
 		inner_height, inner_width = _get_window_size_for_resize(action)
 
 		if inner_width is not None and inner_height is not None:
-			driver.set_window_size(inner_height, inner_width)
+			driver.set_window_size(inner_width, inner_height)
 			logging.info(f'Properly sized window for resize.')
 		else:
 			logging.info(f'Received "None" sizes when sizing window for resize.')
@@ -199,22 +198,13 @@ def _handle_insert_line_break_event(input_element):
 
 def _get_window_size_for_DOMContentLoaded(action):
 	try:
-		action_target = action['target']
-	except Keyerror as ke:
-		logging.error('error getting window size : action has no "target" field.')
-	else:
-		try:
-			action_target_default_view =  action_target['defaultView']
-		except Keyerror as ke:
-			logging.error('error getting window size for DOMContentLoaded : action target has no "defaultView" field.')
-		else:
-			try:
-				inner_height = action_target_default_view['innerHeight']
-				inner_width = action_target_default_view['innerWidth']
-			except Keyerror as ke:
-				logging.error('error getting window size for DOMContentLoaded : action target default view has no "innerHeight" or "innerWidth" field.')
+		window_height = action['windowOuterHeight']
+		window_width = action['windowOuterWidth']
+		return window_width, window_height
 
-	return inner_height, inner_width
+	except Keyerror as ke:
+		logging.error('error getting window size : action has no "windowInnerHeight" or "windowInnerWidth" field.')
+
 
 
 def _get_window_size_for_resize(action):
