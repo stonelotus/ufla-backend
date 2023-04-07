@@ -1,5 +1,6 @@
 const logger = require('pino')()
 const { Client } = require("@elastic/elasticsearch");
+const { cst } = require('../utils/constants');
 
 
 
@@ -56,10 +57,10 @@ const elasticMagic = {
         index: indexName,
         body: document
       });
-      logger.info(response);
-      
+      return {status: response.result == 'created' ? cst.STATUS_SUCCESS:'error'}
     } catch (error) {
       logger.error('Error indexing document:', error);
+      return {status: 'error'}
     }
   },
   search: async (indexName, query) => {
@@ -72,7 +73,6 @@ const elasticMagic = {
           }
         }
       });
-      logger.info(response);
       return response?.hits?.hits ?? 'broken'
     } catch (error) {
       logger.error('Error searching documents:', error);

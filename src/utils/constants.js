@@ -1,6 +1,10 @@
 const CONSTANTS = {
     FLOWS: 'ufla-flows',
     ACTIONS: 'ufla-actions',
+    USERS: 'ufla-users',
+    STATUS_SUCCESS: 'success'
 }
 
-module.exports = [CONSTANTS]
+module.exports = {
+    cst: CONSTANTS
+}

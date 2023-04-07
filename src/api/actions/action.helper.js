@@ -1,5 +1,5 @@
 const { es } = require('../helpers/elastic');
-const { cst } = require('../../utils/constants');
+const { cst } = require('../../utils/constants').default;
 const logger = require('pino')()
 
 const actionHelper = {
@@ -12,7 +12,8 @@ const actionHelper = {
         let indexStatus = await es.indexDocument(cst.ACTIONS, action);
         logger.info(indexStatus);
         return indexStatus;
-    }
+    },
+    
 }
 
 
