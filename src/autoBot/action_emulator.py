@@ -12,6 +12,7 @@ import time
 
 from driver_loader import get_driver_for_browser_ip
 from flow_getter import get_all_flows
+import helpers
 
 
 def emulate_all_flows():
@@ -26,54 +27,54 @@ def emulate_one_flow(flow):
 	chain = ActionChains(driver)
 
 	for action in flow:
-		action_type = _get_action_type(action)
+		action_type = helpers.get_action_type(action)
 		logging.info(action_type)
 	
 		match action_type:
 			# Mouse events
 			case 'click':
-				_emulate_click(chain, driver, action)
+				emulate_click(chain, driver, action)
 			case 'dblclick':
-				_emulate_dblclick(chain, driver, action)
+				emulate_dblclick(chain, driver, action)
 			case 'mousedown':
-				_emulate_mousedown(chain, driver, action)
+				emulate_mousedown(chain, driver, action)
 			case 'mouseup':
-				_emulate_mouseup(chain, driver, action)
+				emulate_mouseup(chain, driver, action)
 			case 'mousemove':
-				_emulate_mousemove(chain, driver, action)
+				emulate_mousemove(chain, driver, action)
 			case 'mouseover':
-				_emulate_mouseover(chain, driver, action)
+				emulate_mouseover(chain, driver, action)
 			case 'mouseenter':
-				_emulate_mouseover(chain, driver, action) # same function as mouseover
+				emulate_mouseover(chain, driver, action) # same function as mouseover
 			# case 'mouseout':
-			# 	_emulate_mouseout(chain, driver, action)
+			# 	emulate_mouseout(chain, driver, action)
 			# case 'mouseleave':
-			# 	_emulate_mouseout(chain, driver, action) # same function as mouseout
+			# 	emulate_mouseout(chain, driver, action) # same function as mouseout
 			# # Commented as they add no value and increase error%
 			case 'contextmenu':
-				_emulate_contextmenu(chain, driver, action)
+				emulate_contextmenu(chain, driver, action)
 
 			# Window events
 			case 'scroll':
-				_emulate_scroll(chain, driver, action)
+				emulate_scroll(chain, driver, action)
 			case 'input':
-				_emulate_input(chain, driver, action)
+				emulate_input(chain, driver, action)
 			case 'DOMContentLoaded':
 				# the purpose of this is to properly resize the window at the beginning of the session
-				_emulate_DOMContentLoaded(chain, driver, action)
+				emulate_DOMContentLoaded(chain, driver, action)
 			case 'resize':
-				_emulate_resize(chain, driver, action)
+				emulate_resize(chain, driver, action)
 
 	time.sleep(5)
 
 	driver.quit()
 
 # MOUSE EVENTS
-def _emulate_click(chain, driver, action):
+def emulate_click(chain, driver, action):
 	try:
-		element = _get_element(driver, action)
+		element = helpers.get_element(driver, action)
 		# time.sleep(1) # added timing needed to get to the middle of the object
-		ctrl_key = _get_ctrl_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
 
@@ -92,11 +93,11 @@ def _emulate_click(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-def _emulate_dblclick(chain, driver, action):
+def emulate_dblclick(chain, driver, action):
 	try:
-		element = _get_element(driver, action)
+		element = helpers.get_element(driver, action)
 		
-		ctrl_key = _get_ctrl_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
 
@@ -114,11 +115,11 @@ def _emulate_dblclick(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-def _emulate_mousedown(chain, driver, action):
+def emulate_mousedown(chain, driver, action):
 	try:
-		element = _get_element(driver, action)
+		element = helpers.get_element(driver, action)
 		
-		ctrl_key = _get_ctrl_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
 
@@ -136,11 +137,11 @@ def _emulate_mousedown(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-def _emulate_mouseup(chain, driver, action):
+def emulate_mouseup(chain, driver, action):
 	try:
-		element = _get_element(driver, action)
+		element = helpers.get_element(driver, action)
 
-		ctrl_key = _get_ctrl_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
 
@@ -158,11 +159,11 @@ def _emulate_mouseup(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-def _emulate_mousemove(chain, driver, action):
+def emulate_mousemove(chain, driver, action):
 	try:
-		element = _get_element(driver, action)
+		element = helpers.get_element(driver, action)
 
-		ctrl_key = _get_ctrl_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
 
@@ -181,11 +182,11 @@ def _emulate_mousemove(chain, driver, action):
 
 
 # Both mouseover and mouseenter can be handled with the same function
-def _emulate_mouseover(chain, driver, action):
+def emulate_mouseover(chain, driver, action):
 	try:
-		element = _get_element(driver, action)
+		element = helpers.get_element(driver, action)
 		
-		ctrl_key = _get_ctrl_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
 
@@ -204,11 +205,11 @@ def _emulate_mouseover(chain, driver, action):
 
 
 # Both mouseout and mouseleave can be handled with the same function
-def _emulate_mouseout(chain, driver, action):
+def emulate_mouseout(chain, driver, action):
 	try:
-		element = _get_element(driver, action)
+		element = helpers.get_element(driver, action)
 		
-		ctrl_key = _get_ctrl_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
 
@@ -226,11 +227,11 @@ def _emulate_mouseout(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-def _emulate_contextmenu(chain, driver, action):
+def emulate_contextmenu(chain, driver, action):
 	try:
-		element = _get_element(driver, action)
+		element = helpers.get_element(driver, action)
 		
-		ctrl_key = _get_ctrl_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
 
@@ -249,10 +250,10 @@ def _emulate_contextmenu(chain, driver, action):
 
 
 # WINDOW EVENTS
-def _emulate_scroll(chain, driver, action):
+def emulate_scroll(chain, driver, action):
 	# TODO add scroll_width
 	try:
-		scrollX, scrollY = _get_scroll_params(action)
+		scrollX, scrollY = helpers.get_scroll_params(action)
 
 		scroll_script = f'window.scrollTo({scrollX}, {scrollY});'
 		driver.execute_script(scroll_script)
@@ -267,9 +268,44 @@ def _emulate_scroll(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-def _emulate_input(chain, driver, action):
-	input_element = _get_element(driver, action)
-	keys_to_input = _get_keys_to_input(action)
+def emulate_DOMContentLoaded(chain, driver, action):
+	try:
+		outer_width, outer_height = helpers.get_window_size(action)
+		if outer_width is not None and outer_height is not None:
+			driver.set_window_size(outer_width, outer_height)
+			logging.info(f'Properly sized window for DOMContentLoaded.')
+		else:
+			logging.info(f'Received "None" sizes when sizing window for DOMContentLoaded.')
+
+	except Exception as e:
+		logging.error(f'Exception when sizing window for DOMContentLoaded.:\n {e}')
+		pass
+	# else:
+	finally:
+		logging.info('--------------- End of action -----------------')
+
+
+def emulate_resize(chain, driver, action):
+	try:
+		outer_width, outer_height = helpers.get_window_size(action)
+
+		if outer_width is not None and outer_height is not None:
+			driver.set_window_size(outer_width, outer_height)
+			logging.info(f'Properly sized window for resize.')
+		else:
+			logging.info(f'Received "None" sizes when sizing window for resize.')
+
+	except Exception as e:
+		logging.error(f'Exception when sizing window for resize.')
+		pass
+	# else:
+	finally:
+		logging.info('--------------- End of action -----------------')
+
+
+def emulate_input(chain, driver, action):
+	input_element = helpers.get_element(driver, action)
+	keys_to_input = helpers.get_keys_to_input(action)
 
 	input_type = action['inputType']
 	match input_type:
@@ -291,63 +327,6 @@ def _emulate_input(chain, driver, action):
 			raise ValueError(f'Unknown inputType value: {input_type}')
 
 	logging.info('--------------- End of action -----------------')
-
-
-def _emulate_DOMContentLoaded(chain, driver, action):
-	try:
-		outer_width, outer_height = _get_window_size(action)
-		if outer_width is not None and outer_height is not None:
-			driver.set_window_size(outer_width, outer_height)
-			logging.info(f'Properly sized window for DOMContentLoaded.')
-		else:
-			logging.info(f'Received "None" sizes when sizing window for DOMContentLoaded.')
-
-	except Exception as e:
-		logging.error(f'Exception when sizing window for DOMContentLoaded.:\n {e}')
-		pass
-	# else:
-	finally:
-		logging.info('--------------- End of action -----------------')
-
-
-def _emulate_resize(chain, driver, action):
-	try:
-		outer_width, outer_height = _get_window_size(action)
-
-		if outer_width is not None and outer_height is not None:
-			driver.set_window_size(outer_width, outer_height)
-			logging.info(f'Properly sized window for resize.')
-		else:
-			logging.info(f'Received "None" sizes when sizing window for resize.')
-
-	except Exception as e:
-		logging.error(f'Exception when sizing window for resize.')
-		pass
-	# else:
-	finally:
-		logging.info('--------------- End of action -----------------')
-
-
-def _get_element(driver, action):
-	try:
-		element_xpath = _get_element_xpath(action)
-
-		element = WebDriverWait(driver, 2).until(
-			EC.presence_of_element_located((By.XPATH, element_xpath))
-		)
-
-		driver.execute_script("arguments[0].scrollIntoView(true);", element)
-
-		element = WebDriverWait(driver, 10).until(
-			EC.visibility_of_element_located((By.XPATH, element_xpath))
-		)
-
-		time.sleep(0.5)
-		# should do the same as the above, however the above doesn't perform properly for some reason
-		return element
-
-	except:
-		logging.error(f'Exception when getting element')
 
 
 def _handle_insert_text_event(chain, input_element, keys_to_input):
@@ -383,106 +362,4 @@ def _handle_insert_composition_text_event(input_element, keys_to_input):
 def _handle_insert_line_break_event(input_element):
 	input_element.send_keys(Keys.ENTER)
 	logging.info('Inserted line break.')
-
-
-def _get_ctrl_key(action):
-	try:
-		return action['ctrlKey']
-	except Keyerror as ke:
-		logging.error('Current action doesn\'t have a ctrlKey attribute')
-
-
-def _get_window_size(action):
-	try:
-		window_width = action['windowOuterWidth']
-		window_height = action['windowOuterHeight']
-		return window_width, window_height
-	except Keyerror as ke:
-		logging.error('error getting window size : action has no "windowInnerWidth" or "windowInnerHeight" field.')
-
-
-def _get_element_xpath(element):
-	try:
-		return element['xpath']
-	except:
-		logging.error('error getting element xpath : element has no "xpath" field.')
-	return None
-
-
-def _get_keys_to_input(action):
-	try:
-		action_data = action["data"]
-	except Keyerror as ke:
-		logging.error('error getting keys to input : action has no "data" field.')
-
-	return action_data
-
-
-def _get_action_id(action):
-	try:
-		action_target = action['target']
-	except Keyerror as ke:
-		logging.error('error getting action ID : action has no "target" field.')
-	else:
-		try:
-			action_id =  action_target["id"]
-		except Keyerror as ke:
-			logging.error('error getting action ID : action target has no "id" field.')
-
-	if action_id == None or action_id == "":
-		return None
-
-	return action_id
-
-
-def _get_action_css_selector(action):
-	try:
-		action_target = action['target']
-	except Keyerror as ke:
-		logging.error('error getting action css_selector : action has no "target" field.')
-	else:
-		try:
-			action_class_name =  action_target["className"]
-		except Keyerror as ke:
-			logging.error('error getting action css_selector : action target has no "className" field.')
-
-	if action_class_name == None or action_class_name == "":
-		return None
-
-	return action_class_name
-
-
-def _get_scroll_params(action):
-	try:
-		return action['scrollX'], action['scrollY']
-	except Exception as e:
-		print('Exception getting the scrollX and scrollY property.')
-		return None
-
-	# try:
-	# 	action_target = action['target']
-	# except Keyerror as ke:
-	# 	logging.error('error getting action scroll height : action has no "target" field.')
-	# else:
-	# 	try:
-	# 		action_scrolling_element =  action_target["scrollingElement"]
-	# 	except Keyerror as ke:
-	# 		logging.error('error getting action scroll height : action target has no "scrollingElement" field.')
-	# 	else:
-	# 		try:
-	# 			action_scroll_height = action_scrolling_element["scrollHeight"]
-	# 		except Keyerror as ke:
-	# 			logging.error('error getting action scroll height: action target scrollingElement has no "scrollHeight" field.')
-
-	# ## if 0 then ok to return 0 to execute an empty scroll
-	# return action_scroll_height
-
-
-def _get_action_type(action: dict):
-	# it is imposed that any action object within a flow has a type
-	try:
-		return action['type']
-	except Keyerror:
-		logging.error('Current action has no "type" property')
-		return None
 
