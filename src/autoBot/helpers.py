@@ -21,7 +21,7 @@ def get_element(driver, action):
         )
 
         # should do the same as the above, however the above doesn't perform properly for some reason
-        time.sleep(0.5)
+        time.sleep(0.1)
 
         return element
 

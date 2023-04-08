@@ -33,21 +33,21 @@ def emulate_one_flow(flow):
 				emulate_click(chain, driver, action)
 			case 'dblclick':
 				emulate_dblclick(chain, driver, action)
-			# case 'mousedown':
-			# 	emulate_mousedown(chain, driver, action)
-			# case 'mouseup':
-			# 	emulate_mouseup(chain, driver, action)
+			case 'mousedown':
+				emulate_mousedown(chain, driver, action)
+			case 'mouseup':
+				emulate_mouseup(chain, driver, action)
 			case 'mousemove':
 				emulate_mousemove(chain, driver, action)
 			case 'mouseover':
 				emulate_mouseover(chain, driver, action)
-			# case 'mouseenter':
-			# 	emulate_mouseover(chain, driver, action) # same function as mouseover
+			case 'mouseenter':
+				emulate_mouseover(chain, driver, action) # same function as mouseover
 			case 'mouseout':
 				emulate_mouseout(chain, driver, action)
-			# case 'mouseleave':
-			# 	emulate_mouseout(chain, driver, action) # same function as mouseout
-			# # Commented as they add no value and increase error%
+			case 'mouseleave':
+				emulate_mouseout(chain, driver, action) # same function as mouseout
+			# Commented as they add no value and increase error%
 			case 'contextmenu':
 				emulate_contextmenu(chain, driver, action)
 
