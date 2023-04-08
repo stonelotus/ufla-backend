@@ -54,8 +54,8 @@ def emulate_one_flow(flow):
 				_emulate_contextmenu(chain, driver, action)
 
 			# Window events
-			# case 'scroll':
-			# 	_emulate_scroll(chain, driver, action)
+			case 'scroll':
+				_emulate_scroll(chain, driver, action)
 			case 'input':
 				_emulate_input(chain, driver, action)
 			case 'DOMContentLoaded':
@@ -248,21 +248,15 @@ def _emulate_contextmenu(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
-
-
-
-
-
-
-
-
 # WINDOW EVENTS
 def _emulate_scroll(chain, driver, action):
 	# TODO add scroll_width
 	try:
-		scroll_height = _get_scroll_height(action)
+		scrollX, scrollY = _get_scroll_params(action)
 
-		driver.execute_script('window.scrollTo(0, arguments[0]);', scroll_height)
+		scroll_script = f'window.scrollTo({scrollX}, {scrollY});'
+		driver.execute_script(scroll_script)
+
 		logging.info(f'Executed scroll.')
 
 	except Exception as e:
@@ -458,30 +452,30 @@ def _get_action_css_selector(action):
 	return action_class_name
 
 
-def _get_scroll_height(action):
-	# try:
-	# 	return action['scrollY']
-	# except Exception as e:
-	# 	print('Exception getting the scrollY property'.)
-	# 	return None
-
+def _get_scroll_params(action):
 	try:
-		action_target = action['target']
-	except Keyerror as ke:
-		logging.error('error getting action scroll height : action has no "target" field.')
-	else:
-		try:
-			action_scrolling_element =  action_target["scrollingElement"]
-		except Keyerror as ke:
-			logging.error('error getting action scroll height : action target has no "scrollingElement" field.')
-		else:
-			try:
-				action_scroll_height = action_scrolling_element["scrollHeight"]
-			except Keyerror as ke:
-				logging.error('error getting action scroll height: action target scrollingElement has no "scrollHeight" field.')
+		return action['scrollX'], action['scrollY']
+	except Exception as e:
+		print('Exception getting the scrollX and scrollY property.')
+		return None
 
-	## if 0 then ok to return 0 to execute an empty scroll
-	return action_scroll_height
+	# try:
+	# 	action_target = action['target']
+	# except Keyerror as ke:
+	# 	logging.error('error getting action scroll height : action has no "target" field.')
+	# else:
+	# 	try:
+	# 		action_scrolling_element =  action_target["scrollingElement"]
+	# 	except Keyerror as ke:
+	# 		logging.error('error getting action scroll height : action target has no "scrollingElement" field.')
+	# 	else:
+	# 		try:
+	# 			action_scroll_height = action_scrolling_element["scrollHeight"]
+	# 		except Keyerror as ke:
+	# 			logging.error('error getting action scroll height: action target scrollingElement has no "scrollHeight" field.')
+
+	# ## if 0 then ok to return 0 to execute an empty scroll
+	# return action_scroll_height
 
 
 def _get_action_type(action: dict):
