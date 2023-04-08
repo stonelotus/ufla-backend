@@ -13,8 +13,9 @@ def get_element(driver, action):
 			EC.visibility_of_element_located((By.XPATH, element_xpath))
 		)
 
-		time.sleep(0.5)
 		# should do the same as the above, however the above doesn't perform properly for some reason
+		time.sleep(0.5)
+
 		return element
 
 	except:
@@ -26,6 +27,13 @@ def get_ctrl_key(action):
 		return action['ctrlKey']
 	except Keyerror as ke:
 		logging.error('Current action doesn\'t have a ctrlKey attribute')
+
+
+def get_key(action):
+	try:
+		return action['key']
+	except Keyerror as ke:
+		logging.error('Current action doesn\'t have a key attribute')
 
 
 def get_window_size(action):
@@ -48,32 +56,56 @@ def get_keys_to_input(action):
 
 def get_scroll_params(action):
 	try:
-		return action['scrollX'], action['scrollY']
-	except Exception as e:
-		print('Exception getting the scrollX and scrollY property.')
-		return None
+        return action['scrollX'], action['scrollY']
+    except Exception as e:
+        print('Exception getting the scrollX and scrollY property.')
+        return None
 
 
 def get_action_type(action: dict):
-	# it is imposed that any action object within a flow has a type
-	try:
-		return action['type']
-	except Keyerror:
-		logging.error('Current action has no "type" property')
-		return None
+    # it is imposed that any action object within a flow has a type
+    try:
+        return action['type']
+    except Keyerror:
+        logging.error('Current action has no "type" property')
+        return None
+
+
+def get_value(action):
+    try:
+        action_target = action['target']
+    except:
+        logging.error('Current action has no "target" property')
+    else:
+        try:
+            return action_target['value']
+        except Keyerror as ke:
+            logging.error('Current action target has no "value" property')
+
+
+def get_start_end(action):
+    try:
+        action_target = action['target']
+    except:
+        logging.error('Current action has no "target" property')
+    else:
+        try:
+            return action_target['selectionStart'], action_target['selectionEnd']
+        except Keyerror as ke:
+            logging.error('Current action target has no "selectionStart" or "selectionEnd" property')
 
 
 def _get_element_xpath(element):
-	try:
-		return element['xpath']
-	except:
-		logging.error('error getting element xpath : element has no "xpath" field.')
-	return None
+    try:
+        return element['xpath']
+    except:
+        logging.error('error getting element xpath : element has no "xpath" field.')
+    return None
 
 
 def _get_action_id(action):
-	try:
-		action_target = action['target']
+    try:
+        action_target = action['target']
 	except Keyerror as ke:
 		logging.error('error getting action ID : action has no "target" field.')
 	else:

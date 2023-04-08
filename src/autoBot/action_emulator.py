@@ -57,13 +57,28 @@ def emulate_one_flow(flow):
 			# Window events
 			case 'scroll':
 				emulate_scroll(chain, driver, action)
+			case 'resize':
+				emulate_resize(chain, driver, action)
+
 			case 'input':
 				emulate_input(chain, driver, action)
 			case 'DOMContentLoaded':
 				# the purpose of this is to properly resize the window at the beginning of the session
 				emulate_DOMContentLoaded(chain, driver, action)
-			case 'resize':
-				emulate_resize(chain, driver, action)
+
+			# keyboard events
+			case 'keydown':
+				emulate_keydown(chain, driver, action)
+			case 'keyup':
+				emulate_keyup(chain, driver, action)
+			case 'keypress':
+				emulate_keypress(chain, driver, action)
+			
+			# form events
+			case 'submit':
+				emulate_submit(chain, driver, action)
+			
+			
 
 	time.sleep(5)
 
@@ -73,7 +88,6 @@ def emulate_one_flow(flow):
 def emulate_click(chain, driver, action):
 	try:
 		element = helpers.get_element(driver, action)
-		# time.sleep(1) # added timing needed to get to the middle of the object
 		ctrl_key = helpers.get_ctrl_key(action)
 		if ctrl_key:
 			chain.key_down(Keys.CONTROL)
@@ -303,6 +317,84 @@ def emulate_resize(chain, driver, action):
 		logging.info('--------------- End of action -----------------')
 
 
+# Keyboard events
+def emulate_keydown(chain, driver, action):
+	try:
+		key = helpers.get_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
+
+		if key is None:
+			logging.error("Key must be specified for keydown event.")
+			return
+
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		chain.key_down(key).perform()
+
+		if ctrl_key:
+			chain.key_up(Keys.CONTROL)
+
+		logging.info(f'Performed keydown on {key} with ctrlKey={ctrl_key}.')
+
+	except Exception as e:
+		logging.error(f'Exception when performing keydown with ctrlKey={ctrl_key}: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
+
+
+def emulate_keyup(chain, driver, action):
+	try:
+		key = helpers.get_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
+		if key is None:
+			logging.error("Key must be specified for keyup event.")
+			return
+
+		if ctrl_key:
+			chain.key_down(Keys.CONTROL)
+
+		chain.key_up(key).perform()
+
+		if ctrl_key:
+			chain.key_up(Keys.CONTROL)
+
+		logging.info(f'Performed keyup on {key} with ctrlKey={ctrl_key}.')
+
+	except Exception as e:
+		logging.error(f'Exception when performing keyup with ctrlKey={ctrl_key}: ' + str(e))
+		pass
+	finally:
+		logging.info('--------------- End of action -----------------')
+
+
+def emulate_keypress(chain, driver, action):
+    try:
+		key = helpers.get_key(action)
+		ctrl_key = helpers.get_ctrl_key(action)
+        if key is None:
+            logging.error("Key must be specified for keypress event.")
+            return
+
+        if ctrl_key:
+            chain.key_down(Keys.CONTROL)
+
+        chain.send_keys(key).perform()
+
+        if ctrl_key:
+            chain.key_up(Keys.CONTROL)
+
+        logging.info(f'Performed keypress on {key} with ctrlKey={ctrl_key}.')
+
+    except Exception as e:
+        logging.error(f'Exception when performing keypress with ctrlKey={ctrl_key}: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+# Form events
 def emulate_input(chain, driver, action):
 	input_element = helpers.get_element(driver, action)
 	keys_to_input = helpers.get_keys_to_input(action)
@@ -327,6 +419,137 @@ def emulate_input(chain, driver, action):
 			raise ValueError(f'Unknown inputType value: {input_type}')
 
 	logging.info('--------------- End of action -----------------')
+
+
+def emulate_blur(chain, driver, action):
+    try:
+		element = helpers.get_element(driver, action)
+        if element is None:
+            logging.error("Element must be specified for blur event.")
+            return
+
+        body = driver.find_element_by_tag_name('body')
+        chain.move_to_element(element).click().move_to_element(body).click().perform()
+        logging.info(f'Blurred the element.')
+
+    except Exception as e:
+        logging.error(f'Exception when blurring the element: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def emulate_focus(chain, driver, action):
+    try:
+		element = helpers.get_element(driver, action)
+        if element is None:
+            logging.error("Element must be specified for focus event.")
+            return
+
+        chain.move_to_element(element).click().perform()
+        logging.info(f'Focused the element.')
+
+    except Exception as e:
+        logging.error(f'Exception when focusing the element: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def emulate_submit(driver, action):
+    try:
+		element = helpers.get_element(driver, action)
+        if element is None:
+            logging.error("Element must be specified for submit event.")
+            return
+
+        element.submit()
+        logging.info(f'Submitted the form.')
+
+    except Exception as e:
+        logging.error(f'Exception when submitting the form: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def emulate_reset(driver, action):
+    try:
+		# TODO make sure this gets the right element in this context
+		form_element = helpers.get_element(driver, action)
+        if form_element is None:
+            logging.error("Form element must be specified for reset event.")
+            return
+
+        reset_script = 'arguments[0].reset();'
+        driver.execute_script(reset_script, form_element)
+        logging.info(f'Reset the form.')
+
+    except Exception as e:
+        logging.error(f'Exception when resetting the form: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def emulate_change(chain, driver, action):
+    try:
+		element = helpers.get_element(driver, action)
+		value = helpers.get_value(action)
+        if element is None:
+            logging.error("Element and value must be specified for change event.")
+            return
+
+        # Check if the element is a checkbox or radio button
+        is_checkbox = element.tag_name == 'input' and element.get_attribute('type') == 'checkbox'
+        is_radio = element.tag_name == 'input' and element.get_attribute('type') == 'radio'
+
+        if is_checkbox or is_radio:
+            # Simulate a space key press to toggle the checkbox or radio button
+            chain.move_to_element(element).click().key_down(Keys.SPACE).key_up(Keys.SPACE).perform()
+        else:
+            # Move to the element, click it, and send the new value
+            chain.move_to_element(element).click().send_keys(value).perform()
+
+        # Trigger the 'change' event on the element using ActionChains
+        chain.move_to_element(element).click().perform()
+
+        logging.info(f'Changed the value of the element.')
+
+    except Exception as e:
+        logging.error(f'Exception when changing the value of the element: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
+
+
+def emulate_select(chain, driver, action):
+    try:
+		element = helpers.get_element(driver, action)
+		start, end = helpers.get_start_end(action)
+
+        if element is None:
+            logging.error("Element must be specified for select event.")
+            return
+
+        if end is None or end == '':
+            # If end is not specified, select from start to end of text
+            end = len(helpers.get_value(action))
+
+        # Move to the element and click to focus it
+        chain.move_to_element(element).click().perform()
+
+        # Select the text in the element using ActionChains
+        actions = ActionChains(driver)
+        actions.move_to_element(element).click_and_hold().move_by_offset(start, 0).move_by_offset(end - start, 0).release().perform()
+
+        logging.info(f'Selected text in the element.')
+
+    except Exception as e:
+        logging.error(f'Exception when selecting text in the element: ' + str(e))
+        pass
+    finally:
+        logging.info('--------------- End of action -----------------')
 
 
 def _handle_insert_text_event(chain, input_element, keys_to_input):
